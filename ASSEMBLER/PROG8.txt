@@ -1,0 +1,461 @@
+1                    J E S 2  J O B  L O G  --  S Y S T E M  S 0 W 1  --  N O D E  Z O S K C T R         
+0 
+ 00.22.31 JOB00200 ---- WEDNESDAY, 23 APR 2014 ----
+ 00.22.31 JOB00200  IRR010I  USERID KC03D04  IS ASSIGNED TO THIS JOB.
+ 00.22.31 JOB00200  ICH70001I KC03D04  LAST ACCESS AT 00:21:19 ON WEDNESDAY, APRIL 23, 2014
+ 00.22.31 JOB00200  $HASP373 KC03D04A STARTED - INIT 2    - CLASS A - SYS S0W1
+ 00.22.31 JOB00200  -                                      -----TIMINGS (MINS.)------                          -----PAGING COUNTS----
+ 00.22.31 JOB00200  -STEPNAME PROCSTEP    RC   EXCP   CONN       TCB       SRB  CLOCK          SERV  WORKLOAD  PAGE  SWAP   VIO SWAPS
+ 00.22.31 JOB00200  -STEP1                00     55     19       .00       .00     .0            14  BATCH        0     0     0     0
+ 00.22.31 JOB00200  -KC03D04A ENDED.  NAME-ERNESTO              TOTAL TCB CPU TIME=      .00 TOTAL ELAPSED TIME=    .0
+ 00.22.31 JOB00200  $HASP395 KC03D04A ENDED
+0------ JES2 JOB STATISTICS ------
+-  23 APR 2014 JOB EXECUTION DATE
+-          339 CARDS READ
+-          457 SYSOUT PRINT RECORDS
+-            0 SYSOUT PUNCH RECORDS
+-           51 SYSOUT SPOOL KBYTES
+-         0.00 MINUTES EXECUTION TIME
+ !! END OF JES SPOOL FILE !!
+        1 //KC03D04A JOB ,'ERNESTO',MSGCLASS=H                                    JOB00200
+        2 //STEP1 EXEC PGM=ASSIST,PARM='MACRO=F'                                  00000200
+        3 //STEPLIB DD DSN=KC02293.ASSIST.LOADLIB,DISP=SHR                        00000300
+        4 //SYSIN DD *                                                            00000400
+        5 //FT05F001 DD DSN=KC02330.CSCI360.FILES(DATA8),DISP=SHR                 00029800
+          /*                                                                      00029900
+        6 //SYSPRINT DD SYSOUT=*                                                  00030000
+ !! END OF JES SPOOL FILE !!
+ ICH70001I KC03D04  LAST ACCESS AT 00:21:19 ON WEDNESDAY, APRIL 23, 2014
+ IEF236I ALLOC. FOR KC03D04A STEP1
+ IGD103I SMS ALLOCATED TO DDNAME STEPLIB
+ IEF237I JES2 ALLOCATED TO SYSIN
+ IGD103I SMS ALLOCATED TO DDNAME FT05F001
+ IEF237I JES2 ALLOCATED TO SYSPRINT
+ IEF142I KC03D04A STEP1 - STEP WAS EXECUTED - COND CODE 0000
+ IGD104I KC02293.ASSIST.LOADLIB                       RETAINED,  DDNAME=STEPLIB 
+ IEF285I   KC03D04.KC03D04A.JOB00200.D0000101.?         SYSIN         
+ IGD104I KC02330.CSCI360.FILES                        RETAINED,  DDNAME=FT05F001
+ IEF285I   KC03D04.KC03D04A.JOB00200.D0000102.?         SYSOUT        
+ IEF373I STEP/STEP1   /START 2014113.0022
+ IEF032I STEP/STEP1   /STOP  2014113.0022 
+         CPU:     0 HR  00 MIN  00.01 SEC    SRB:     0 HR  00 MIN  00.00 SEC    
+         VIRT:   584K  SYS:   284K  EXT:        0K  SYS:    10932K
+ IEF375I  JOB/KC03D04A/START 2014113.0022
+ IEF033I  JOB/KC03D04A/STOP  2014113.0022 
+         CPU:     0 HR  00 MIN  00.01 SEC    SRB:     0 HR  00 MIN  00.00 SEC    
+ !! END OF JES SPOOL FILE !!
+1*** ASSIST 4.0/A2-05/15/82  470/V7A/0:OS/VS2  INS=SDFP7/X=BGHO, CHECK/TRC/=1180, OPTS=CDKMPR FROM PENN ST*NIU COMPSCI*LT            
+0MACRO=F                                                                                                                             
+0                                                                                                               PAGE    1            
+0  LOC  OBJECT CODE    ADDR1 ADDR2  STMT   SOURCE STATEMENT                                                                          
+                                       1 ****************************************                                00000500            
+                                       2 *        ERNESTO RODRIGUEZ             *                                00000600            
+                                       3 *        AHMER WASEEM                  *                                00000610            
+                                       4 *        ASSIGN8                       *                                00000700            
+                                       5 *        APR 22,2014                   *                                00000800            
+                                       6 ****************************************                                00000900            
+ 000000                                7 MAIN     CSECT                                                          00000910            
+ 000000                                8 CARDD    DSECT                                                          00000920            
+ 000000                                9 $INDINID DS CL5                                                         00000930            
+ 000005                               10          DS CL1                                                         00000931            
+ 000006                               11 $INNAME  DS CL32                                                        00000940            
+ 000026                               12 $INLOC   DS CL20                                                        00000950            
+ 00003A                               13 $INQUAN  DS CL3                                                         00000960            
+ 00003D                               14          DS CL1                                                         00000961            
+ 00003E                               15 $INPRICE DS CL5                                                         00000970            
+ 000043                               16          DS CL13                                                        00000980            
+ 000000                               17 TABLED   DSECT                                                          00000990            
+ 000000                               18 $ID      DS F                                                           00000991            
+ 000004                               19 $QUAN    DS F                                                           00000992            
+ 000008                               20 $PRICE   DS F                                                           00000993            
+ 00000C                               21 $LOC     DS CL20                                                        00000994            
+ 000020                               22 $NAME    DS CL32                                                        00000995            
+1                                                                                                               PAGE    2            
+0  LOC  OBJECT CODE    ADDR1 ADDR2  STMT   SOURCE STATEMENT                                                                          
+                                                                                                                                     
+                                                                                                                                     
+ 000000                               24 PGM8     CSECT                                                          00001100            
+ 000000 90EC D00C            0000C    25          STM   14,12,12(13)      *SAVE THE CALLING ROUTINE'S REGISTER   00001200            
+ 000004 18CF                          26          LR    12,15             *SETUP THE BASE REGISTER               00001300            
+ 000000                               27          USING PGM8,12           *FOR THE ROUTINE                       00001400            
+ 000006 41E0 C04C            0004C    28          LA    14,MAINSAVE       *FIND THE ROUTINE'S SAVEAREA           00001500            
+ 00000A 50D0 E004            00004    29          ST    13,4(,14)         *SAVE THE BACKWARD                     00001600            
+ 00000E 50E0 D008            00008    30          ST    14,8(,13)         *AND FORWARD POINTERS                  00001700            
+ 000012 18DE                          31          LR    13,14                                                    00001800            
+                                      32 *****************STANDARD LINKAGE*************************              00001900            
+ 000014 4110 C0E8            000E8    33          LA    1,BPARMS          *R1 -> PARAMETER LIST                  00002000            
+ 000018 58F0 C040            00040    34          L     15,=V(BUILD)      *BUILD THE TABLE                       00002100            
+ 00001C 05EF                          35          BALR  14,15                                                    00002200            
+                                      36 **********************************************************************  00002300            
+ 00001E 4110 C0E4            000E4    37          LA    1,PPARMS          *R1 -> PARAMETER LIST                  00002400            
+ 000022 58F0 C044            00044    38          L     15,=V(SORT)       *SORT THE TABLE                        00002500            
+ 000026 05EF                          39          BALR  14,15                                                    00002600            
+                                      40 *********************************************************************   00002700            
+ 000028 4110 C0E4            000E4    41          LA    1,PPARMS          *R1 -> PARAMETER LIST                  00002800            
+ 00002C 58F0 C048            00048    42          L     15,=V(PRINT)      *PRINT THE TABLE                       00002900            
+ 000030 05EF                          43          BALR  14,15                                                    00003000            
+                                      44 *********************************************************************   00003100            
+ 000032 58D0 D004            00004    45          L     13,4(,13)         *GET THE ADDRESS OF THE SAVEAREA       00003200            
+ 000036 98EC D00C            0000C    46          LM    14,12,12(13)      *RESTORE THE CALLING ROUTINE'S REGS    00003300            
+ 00003A 07FE                          47          BR    14                *I'M DONE!                             00003400            
+                                      48          LTORG                                                          00003500            
+ 000040 00000B00                      49                =V(BUILD)                                                                    
+ 000044 00000ED0                      50                =V(SORT)                                                                     
+ 000048 00000BC8                      51                =V(PRINT)                                                                    
+                                      52 *** STORAGE FOR PGM8 ***                                                00003600            
+ 00004C                               53 MAINSAVE DS    18F               *STORAGE FOR REGISTERS                 00003700            
+ 000094                               54 BUFFER   DS    CL80              *INPUT BUFFER                          00003800            
+ 0000E4 00000100                      55 PPARMS   DC    A(TABLE)          *PARAMETER LIST FOR PRINTING AND       00003900            
+ 0000E8 000000F000000094              56 BPARMS   DC    A(EOT,BUFFER)     *BUILDING THE TABLE                    00004000            
+                                      57 *                                                                       00004100            
+ 0000F0 00000100                      58 EOT      DC    A(TABLE)          *STORAGE FOR LOGICAL END OF TABLE ADDR 00004200            
+                                      59 *                                                                       00004300            
+ 000100                               60          ORG   PGM8+((*-PGM8+31)/32*32)                                 00004400            
+ 000100 FFFFFFFFFFFFFFFF              61 TABLE    DC    640F'-1'          *STORAGE FOR TABLE                     00004500            
+ 000B00                               62 ENDTAB   DS    0X                *END OF TABLE MARKER                   00004600            
+1                                                                                                               PAGE    3            
+0  LOC  OBJECT CODE    ADDR1 ADDR2  STMT   SOURCE STATEMENT                                                                          
+                                                                                                                                     
+                                                                                                                                     
+                                      64 ********************************************************************    00004800            
+                                      65 * NAME:       BUILD                                                     00004900            
+                                      66 *                                                                       00005000            
+                                      67 * FUNCTION:   BUILDS A TABLE FROM INPUT RECORDS                         00005100            
+                                      68 *                                                                       00005200            
+                                      69 * ENTRY COND: 0(1) - ADDRESS OF LOGICAL END OF THE TABLE                00005300            
+                                      70 *             4(1) - ADDRESS OF THE INPUT BUFFER                        00005400            
+                                      71 *                                                                       00005500            
+                                      72 * LOGIC:      1. READ THE FIRST RECORD                                  00005600            
+                                      73 *             2. DO WHILE THERE ARE MORE RECORDS                        00005700            
+                                      74 *             3. GET INFO FROM THE INPUT RECORD AND PUT IN TABLE        00005800            
+                                      75 *             4. INCREMENT TABLE POINTER TO NEXT ELEMENT                00005900            
+                                      76 *             5. READ THE NEXT RECORD                                   00006000            
+                                      77 *             6. ENDDO                                                  00006100            
+                                      78 *             7. SAVE THE LOGICAL END OF TABLE ADDRESS                  00006200            
+                                      79 *                                                                       00006300            
+                                      80 * REGISTERS:  1 -- ADDRESS OF THE PARAETER LIST                         00006400            
+                                      81 *             4 -- ADDRESS OF LOGICAL END OF THE TABLE                  00006500            
+                                      82 *             5 -- ADDRESS OF THE INPUT BUFFER                          00006600            
+                                      83 *             7 -- TABLE POINTER                                        00006700            
+                                      84 *             8 -- WORK REGISTER TO MOVE DATA TO TABLE                  00006800            
+                                      85 *                                                                       00006900            
+                                      86 * NOTES:      NONE                                                      00007000            
+                                      87 *******************************************************************     00007100            
+1                                                                                                               PAGE    4            
+0  LOC  OBJECT CODE    ADDR1 ADDR2  STMT   SOURCE STATEMENT                                                                          
+                                                                                                                                     
+                                                                                                                                     
+ 000B00                               89 BUILD    CSECT                   *BUILD ROUTINE                         00007300            
+ 000B00 90EC D00C            0000C    90          STM   14,12,12(13)      *SAVE THE CALLING ROUTINE'S REGISTER   00007400            
+ 000B04 18CF                          91          LR    12,15             *SETUP THE BASE REGISTER               00007500            
+ 000B00                               92          USING BUILD,12            *FOR THE ROUTINE                     00007600            
+ 000B06 41E0 C078            00B78    93          LA    14,BLDSAVE        *FIND THE ROUTINE'S SAVEAREA           00007700            
+ 000B0A 50D0 E004            00004    94          ST    13,4(,14)         *SAVE THE BACKWARD                     00007800            
+ 000B0E 50E0 D008            00008    95          ST    14,8(,13)           *AND FORWARD POINTERS                00007900            
+ 000B12 18DE                          96          LR    13,14                                                    00008000            
+ 000B14 9845 1000            00000    97          LM    4,5,0(1)          *4 = EOT 5=INPUT BUFFER                00008100            
+                                      98 *                                                                       00008200            
+ 000B18 5870 4000            00000    99          L     7,0(,4)                                                  00008300            
+ 000000                              100          USING CARDD,5                                                  00008310            
+ 000000                              101          USING TABLED,7           *USE DSECTS                           00008320            
+ 000B1C E000 5000 0050 00000         102          XREAD 0(,5),80                                                 00008400            
+ 000B22 4740 C06A            00B6A   103 DO1      BL    ENDDO1            *DO WHILE THERE ARE STILL RECORDS      00008500            
+                                     104 *                                                                       00008600            
+ 000B26 F274 C0C0 5000 00BC0 00000   105          PACK BTEMP(8),$INDINID(5)    *GET ID                           00008610            
+ 000B2C 4F80 C0C0            00BC0   106          CVB  8,BTEMP                                                   00008620            
+ 000B30 5080 7000            00000   107          ST    8,$ID                  *AND STORE IT IN THE TABLE        00008800            
+                                     108 *                                                                       00008900            
+ 000B34 F272 C0C0 503A 00BC0 0003A   109          PACK BTEMP(8),$INQUAN(3)     *GET QUAN                         00008910            
+ 000B3A 4F80 C0C0            00BC0   110          CVB  8,BTEMP                                                   00008920            
+ 000B3E 5080 7004            00004   111          ST    8,$QUAN                *AND STORE IT IN THE TABLE        00009100            
+                                     112 *                                                                       00009200            
+ 000B42 F274 C0C0 503E 00BC0 0003E   113          PACK BTEMP(8),$INPRICE        *GET PRICE                       00009210            
+ 000B48 4F80 C0C0            00BC0   114          CVB   8,BTEMP                                                  00009220            
+ 000B4C 5080 7008            00008   115          ST    8,$PRICE               *AND STORE IT IN THE TABLE        00009400            
+                                     116 *                                                                       00009500            
+ 000B50 D213 700C 5026 0000C 00026   117          MVC   $LOC,$INLOC     *MOVE THE BREWER LOCATION                00009600            
+ 000B56 D21F 7020 5006 00020 00006   118          MVC   $NAME,$INNAME       *AND BEER NAME TO TABLE              00009700            
+                                     119 *                                                                       00009800            
+ 000B5C 4170 7040            00040   120          LA    7,64(,7)            *INCREMENT TO NEXT TABLE ELEMENT     00009900            
+ 000B60 E000 5000 0050 00000         121          XREAD 0(,5),80            *READ THE NEXT RECORD                00010000            
+ 000B66 47F0 C022            00B22   122          B     DO1                 *BRANCH TO TOP OF LOOP               00010100            
+ 000B6A                              123 ENDDO1   DS    0H                  *ENDDO                               00010200            
+                                     124 *                                                                       00010300            
+ 000B6A 5070 4000            00000   125          ST    7,0(,4)             *SAVE THE LOGICAL END OF TABLE ADDR  00010400            
+ 000B6E                              126          DROP 5                                                         00010410            
+ 000B6E                              127          DROP 7                                                         00010420            
+                                     128 *                                                                       00010500            
+ 000B6E 58D0 D004            00004   129          L     13,4(,13)         *GET THE ADDRESS OF THE SAVEAREA       00010600            
+ 000B72 98EC D00C            0000C   130          LM    14,12,12(13)      *RESTORE THE CALLING ROUTINE'S REGS    00010700            
+ 000B76 07FE                         131          BR    14                *I'M DONE!                             00010800            
+                                     132          LTORG                                                          00010900            
+                                     133 *                                                                       00011000            
+                                     134 *** STORAGE FOR BUILD ROUTINE ***                                       00011100            
+                                     135 *                                                                       00011200            
+ 000B78                              136 BLDSAVE  DS    18F               *STORAGE FOR REGISTERS                 00011300            
+ 000BC0                              137 BTEMP    DS    D                                                        00011310            
+1                                                                                                               PAGE    5            
+0  LOC  OBJECT CODE    ADDR1 ADDR2  STMT   SOURCE STATEMENT                                                                          
+                                                                                                                                     
+                                                                                                                                     
+                                     139 ********************************************************************    00011500            
+                                     140 * NAME:       PRINT                                                     00011600            
+                                     141 *                                                                       00011700            
+                                     142 * FUNCTION:   PRINTS A TABLE                                            00011800            
+                                     143 *                                                                       00011900            
+                                     144 * ENTRY COND: 0(1) - ADDRESS OF THE TABLE                               00012000            
+                                     145 *             4(1) - ADDRESS OF LOGICAL END OF THE TABLE                00012100            
+                                     146 *                                                                       00012200            
+                                     147 * LOGIC:      1. INITIALIZE COUNTER TO 0                                00012300            
+                                     148 *             2. DO WHILE THERE ARE TABLE ELEMENTS                      00012400            
+                                     149 *             3.   MOVE INFORMATION FROM TABLE TO PRINT LINE            00012500            
+                                     150 *             4.   INCREMENT TOTAL STOCK AMOUNT                         00012600            
+                                     151 *             5.   WRITE THE PRINT LINE                                 00012700            
+                                     152 *             6.   INCREMENT TABLE POINTER TO NEXT ELEMENT              00012800            
+                                     153 *             7. ENDDO                                                  00012900            
+                                     154 *             8. WRITE TOTAL STOCK AMOUNT                               00013000            
+                                     155 *                                                                       00013100            
+                                     156 * REGISTERS:  1  -- ADDRESS OF THE PARAMETER LIST                       00013200            
+                                     157 *             3  -- ADDRESS OF TABLE BEGINNING                          00013300            
+                                     158 *             4  -- ADDRESS OF LOGICAL END OF THE TABLE                 00013400            
+                                     159 *             5  -- WORK REGISTER TO MOVE ITEMS FROM TABLE TO PLINE     00013500            
+                                     160 *             6  -- TOTAL NUMBER OF CASES IN STOCK                      00013600            
+                                     161 ********************************************************************    00013700            
+1                                                                                                               PAGE    6            
+0  LOC  OBJECT CODE    ADDR1 ADDR2  STMT   SOURCE STATEMENT                                                                          
+                                                                                                                                     
+                                                                                                                                     
+ 000BC8                              163 PRINT    CSECT                    PRINT ROUTINE                         00013900            
+ 000BC8 90EC D00C            0000C   164          STM   14,12,12(13)       SAVE THE CALLING ROUTINE'S REGISTER   00014000            
+ 000BCC 18CF                         165          LR    12,15              SETUP THE BASE REGISTER               00014100            
+ 000BC8                              166          USING PRINT,12             FOR THE ROUTINE                     00014200            
+ 000BCE 41E0 C0F8            00CC0   167          LA    14,PRNTSAVE        FIND THE ROUTINE'S SAVEAREA           00014300            
+ 000BD2 50D0 E004            00004   168          ST    13,4(,14)          SAVE THE BACKWARD                     00014400            
+ 000BD6 50E0 D008            00008   169          ST    14,8(,13)            AND FORWARD POINTERS                00014500            
+ 000BDA 18DE                         170          LR    13,14                                                    00014600            
+ 000BDC 9834 1000            00000   171          LM    3,4,0(1)           LOAD THE PARAMETER LIST               00014800            
+                                     172 *                                                                       00014900            
+ 000BE0 E020 C140 0050 00D08         173          XPRNT HDRLN1,ENDHDR1-HDRLN1  WRITE THE PAGE                    00015000            
+ 000BE6 E020 C190 0072 00D58         174          XPRNT HDRLN2,ENDHDR2-HDRLN2     AND COLUMN                     00015100            
+ 000BEC E020 C202 0072 00DCA         175          XPRNT HDRLN3,ENDHDR3-HDRLN3        HEADERS FOR THE REPORT      00015200            
+                                     176 **                                                                      00015300            
+ 000000                              177          USING TABLED,3                                                 00015310            
+ 000BF2 1B66                         178          SR    6,6                INITIALIZE TOTAL STOCK AMOUNT         00015400            
+                                     179 *                                                                       00015500            
+ 000BF4 5930 4000            00000   180 DO2      C     3,0(,4)            DO WHILE NOT END OF TABLE             00015600            
+ 000BF8 47B0 C08C            00C54   181          BNL   ENDDO2                                                   00015700            
+                                     182 *                                                                       00015800            
+ 000BFC 5850 3000            00000   183          L     5,$ID                GET THE ID NUMBER FROM TABLE        00015900            
+                                     184 *        XDECO 5,IDNUM                AND PUT IT ON PRINT LINE          00016000            
+ 000C00 4E50 C0E8            00CB0   185          CVD   5,PTEMP                                                  00016010            
+ 000C04 D20C C275 C0D4 00E3D 00C9C   186          MVC   IDNUM(13),=X'20402020202020202060202020'                 00016020            
+ 000C0A DE0C C275 C0EA 00E3D 00CB2   187          ED    IDNUM(13),PTEMP+2                                        00016030            
+                                     188 *                                                                       00016100            
+ 000C10 D21F C286 3020 00E4E 00020   189          MVC   BEER,32(3)           PUT THE BEER NAME                   00016200            
+ 000C16 D213 C2AB 300C 00E73 0000C   190          MVC   BREWLOC,12(3)          AND BREWERY LOCATION ON LINE      00016300            
+                                     191 *                                                                       00016400            
+ 000C1C 5850 3004            00004   192          L     5,$QUAN              GET THE # OF CASES AVAILABLE        00016500            
+                                     193 *        XDECO 5,NUMCASES             AND PUT IT ON THE PRINT LINE      00016600            
+ 000C20 4E50 C0E8            00CB0   194          CVD   5,PTEMP                                                  00016610            
+ 000C24 D20C C2C4 C0B0 00E8C 00C78   195          MVC NUMCASES(13),=X'204020202020202020202020'                  00016620            
+ 000C2A DE0C C2C4 C0EA 00E8C 00CB2   196          ED  NUMCASES(13),PTEMP+2                                       00016630            
+ 000C30 1A65                         197          AR    6,5                    AND UPDATE TOTAL STOCK AMOUNT     00016700            
+                                     198 *                                                                       00016800            
+ 000C32 5850 3008            00008   199          L     5,$PRICE             GET THE PRICE PER CASE              00016900            
+                                     200 *        XDECO 5,CASEPRC              AND PUT IT ON PRINT LINE          00017000            
+ 000C36 4E50 C0E8            00CB0   201          CVD  5,PTEMP                                                   00017010            
+ 000C3A D20B C2D5 C0BC 00E9D 00C84   202          MVC CASEPRC(12),=X'4020202020215B20204B2020'                   00017020            
+ 000C40 DE0B C2D5 C0EB 00E9D 00CB3   203          ED CASEPRC(12),PTEMP+3                                         00017030            
+                                     204 *                                                                       00017100            
+ 000C46 E020 C274 006D 00E3C         205          XPRNT PLINE,ENDPLINE-PLINE PRINT BEER INFORMATION              00017200            
+                                     206 *                                                                       00017300            
+ 000C4C 4130 3040            00040   207          LA    3,64(,3)             INCREMENT TO NEXT TABLE ELEMENT     00017400            
+ 000C50 47F0 C02C            00BF4   208          B     DO2                  BRANCH TO TOP OF LOOP               00017500            
+ 000C54                              209 ENDDO2   DS    0H                 ENDDO                                 00017600            
+                                     210 *                                                                       00017700            
+                                     211 *        XDECO 6,TOTSTOCK         PUT THE TOTAL STOCK AMOUNT ON PLINE   00017800            
+ 000C54 4E60 C0E8            00CB0   212          CVD   6,PTEMP                                                  00017810            
+ 000C58 D20B C2F5 C0C8 00EBD 00C90   213          MVC  TOTSTOCK(12),=X'402020202020202020202020'                 00017820            
+ 000C5E DE0B C2F5 C0EA 00EBD 00CB2   214          ED TOTSTOCK(12),PTEMP+2                                        00017830            
+ 000C64 E020 C2E1 0026 00EA9         215          XPRNT SUMLINE,ENDSUM-SUMLINE   AND PRINT IT                    00017900            
+                                     216 *                                                                       00018000            
+ 000C6A 58D0 D004            00004   217          L     13,4(,13)          GET THE ADDRESS OF THE SAVEAREA       00018100            
+1                                                                                                               PAGE    7            
+0  LOC  OBJECT CODE    ADDR1 ADDR2  STMT   SOURCE STATEMENT                                                                          
+ 000C6E 98EC D00C            0000C   218          LM    14,12,12(13)       RESTORE THE CALLING ROUTINE'S REGS    00018200            
+ 000C72 07FE                         219          BR    14                 I'M DONE!                             00018300            
+                                     220          LTORG                                                          00018400            
+ 000C78 2040202020202020             221                =X'204020202020202020202020'                                                 
+ 000C84 4020202020215B20             222                =X'4020202020215B20204B2020'                                                 
+ 000C90 4020202020202020             223                =X'402020202020202020202020'                                                 
+ 000C9C 2040202020202020             224                =X'20402020202020202060202020'                                               
+                                     225 *                                                                       00018500            
+                                     226 *** STORAGE FOR PRINT ROUTINE ***                                       00018600            
+ 000CB0                              227 PTEMP    DS D                                                           00018610            
+ 000CB8                              228 EDOUT    DS CL8                                                         00018620            
+                                     229 *                                                                       00018700            
+ 000CC0                              230 PRNTSAVE DS    18F                STORAGE FOR INITIAL REGISTER VALUES   00018800            
+                                     231 *                                                                       00018900            
+ 000D08 F140404040404040             232 HDRLN1   DC    CL42'1'            PAGE HEADER                           00019000            
+ 000D32 C4D6D4C5E2E3C9C3             233          DC    C'DOMESTIC AND IMPORTED BEER INFORMATION'                00019100            
+ 000D58                              234 ENDHDR1  DS    0C                                                       00019200            
+                                     235 *                                                                       00019300            
+ 000D58 F040404040404040             236 HDRLN2   DC    CL8'0'             COLUMN HEADER 1                       00019400            
+ 000D60 C9C4407B40404040             237          DC    CL10'ID #'                                               00019500            
+ 000D6A C2C5C5D940D5C1D4             238          DC    CL37'BEER NAME'                                          00019600            
+ 000D8F C2D9C5E6C5D9E840             239          DC    CL33'BREWERY LOCATION'                                   00019700            
+ 000DB0 C3C1E2C5E2404040             240          DC    CL12'CASES'                                              00019800            
+ 000DBC D7D9C9C3C540D7C5             241          DC    C'PRICE PER CASE'                                        00019900            
+ 000DCA                              242 ENDHDR2  DS    0C                                                       00020000            
+                                     243 *                                                                       00020100            
+ 000DCA 4040404040404040             244 HDRLN3   DC    CL8' '             COLUMN HEADER 2                       00020200            
+ 000DD2 6060606060606060             245          DC    106CL1'-'                                                00020300            
+ 000E3C                              246 ENDHDR3  DS    0C                                                       00020400            
+                                     247 *                                                                       00020500            
+ 000E3C 40                           248 PLINE    DC    C' '               BEER LINE                             00020600            
+ 000E3D                              249 IDNUM    DS    CL12               STORAGE FOR ID NUMBER                 00020700            
+ 000E49 4040404040                   250          DC    CL5' '                                                   00020800            
+ 000E4E                              251 BEER     DS    CL32               STORAGE FOR NAME OF BEER              00020900            
+ 000E6E 4040404040                   252          DC    CL5' '                                                   00021000            
+ 000E73                              253 BREWLOC  DS    CL20               STORAGE FOR LOCATION OF BREWERY       00021100            
+ 000E87 4040404040                   254          DC    CL5' '                                                   00021200            
+ 000E8C                              255 NUMCASES DS    CL12               STORAGE FOR NUMBER OF CASES           00021300            
+ 000E98 4040404040                   256          DC    CL5' '                                                   00021400            
+ 000E9D                              257 CASEPRC  DS    CL12               STORAGE FOR PRICE OF A CASE           00021500            
+ 000EA9                              258 ENDPLINE DS    0C                 END OF PRINT LINE MARKER              00021600            
+                                     259 *                                                                       00021700            
+ 000EA9 6040404040404040             260 SUMLINE  DC    CL8'-'             SUMMARY LINE                          00021800            
+ 000EB1 E3D6E3C1D340E2E3             261          DC    C'TOTAL STOCK:'                                          00021900            
+ 000EBD                              262 TOTSTOCK DS    CL12               TOTAL STOCK AMOUNT                    00022000            
+ 000EC9 40C3C1E2C5E2                 263          DC    C' CASES'                                                00022100            
+ 000ECF                              264 ENDSUM   DS    0C                 END OF SUMMARY LINE MARKER            00022200            
+1                                                                                                               PAGE    8            
+0  LOC  OBJECT CODE    ADDR1 ADDR2  STMT   SOURCE STATEMENT                                                                          
+                                                                                                                                     
+                                                                                                                                     
+                                     266 ******************************************************************      00022400            
+                                     267 * NAME:       SORT                                                      00022500            
+                                     268 *                                                                       00022600            
+                                     269 * FUNCTION:   SORTS A TABLE IN ASCENDING ORDER USING THE SELECTION SORT 00022700            
+                                     270 *                                                                       00022800            
+                                     271 * ENTRY COND: 0(1) - ADDRESS OF THE TABLE                               00022900            
+                                     272 *             4(1) - ADDRESS OF NEXT AVAILABLE ENTRY                    00023000            
+                                     273 *                                                                       00023100            
+                                     274 * LOGIC:      1. FOR ( TOP = 0 TO N BY 1 )                              00023200            
+                                     275 *             2.   SSF = TOP                                            00023300            
+                                     276 *             3.   FOR ( K = TOP + 1 TO N BY 1 )                        00023400            
+                                     277 *             4.     IF KEY[K] < KEY[SSF]                               00023500            
+                                     278 *             5.       SSF = K                                          00023600            
+                                     279 *             6.     ENDIF                                              00023700            
+                                     280 *             7.   ENDFOR                                               00023800            
+                                     281 *             8.   SWAP RECORD[TOP] AND RECORD[SSF]                     00023900            
+                                     282 *             9. ENDFOR                                                 00024000            
+                                     283 *                                                                       00024100            
+                                     284 * REGISTERS:  1  -- ADDRESS OF THE PARAMETER LIST                       00024200            
+                                     285 *             3  -- ADDRESS OF TABLE BEGINNING                          00024300            
+                                     286 *             4  -- ADDRESS OF LOGICAL END OF TABLE                     00024400            
+                                     287 *             5  -- HOLDS ADDRESS OF SMALLEST TABLE ELEMENT (SSF)       00024500            
+                                     288 *             6  -- WORK REGISTER TO GO THRU THE TABLE (K)              00024600            
+                                     289 ********************************************************************    00024700            
+1                                                                                                               PAGE    9            
+0  LOC  OBJECT CODE    ADDR1 ADDR2  STMT   SOURCE STATEMENT                                                                          
+                                                                                                                                     
+                                                                                                                                     
+ 000ED0                              291 SORT     CSECT ,                  SORT ROUTINE                          00024900            
+ 000ED0 90EC D00C            0000C   292          STM   14,12,12(13)       SAVE THE CALLING ROUTINE'S REGISTER   00025000            
+ 000ED4 18CF                         293          LR    12,15              SETUP THE BASE REGISTER               00025100            
+ 000ED0                              294          USING SORT,12            FOR THE ROUTINE                       00025200            
+ 000ED6 41E0 C068            00F38   295          LA    14,SORTSAVE        FIND THE ROUTINE'S SAVEAREA           00025300            
+ 000EDA 50D0 E004            00004   296          ST    13,4(,14)          SAVE THE BACKWARD                     00025400            
+ 000EDE 50E0 D008            00008   297          ST    14,8(,13)            AND FORWARD POINTERS                00025500            
+ 000EE2 18DE                         298          LR    13,14                                                    00025600            
+                                     299 *                                                                       00025700            
+ 000EE4 9834 1000            00000   300          LM    3,4,0(1)           LOAD THE PARAMETER LIST               00025800            
+                                     301 *                                                                       00025900            
+                                     302 * REGISTER 3 = ADDRESS OF TABLE     REGISTER 4 = ADDRESS OF EOT         00026000            
+                                     303 *                                                                       00026100            
+                                     304 * REG 3 = TOP                REG 5 = SSF                                00026200            
+                                     305 * REG 6 = K                  0(,4) = N                                  00026300            
+                                     306 * 32(6) = KEY[K]             32(5) = KEY[SSF]                           00026400            
+                                     307 *                                                                       00026500            
+ 000EE8 5930 4000            00000   308 FOR1     C     3,0(,4)            FOR ( TOP = 0 TO N BY 1 )             00026600            
+ 000EEC 47B0 C05C            00F2C   309          BNL   ENDFOR1              GET OUT WHEN END OF TAB IS REACHED  00026700            
+ 000EF0 1853                         310          LR    5,3                  SSF = TOP                           00026800            
+ 000EF2 4160 5040            00040   311          LA    6,64(,5)             K = TOP + 1                         00026900            
+ 000EF6 5960 4000            00000   312 FOR2     C     6,0(,4)              FOR( TO N BY 1 )                    00027000            
+ 000EFA 47B0 C042            00F12   313          BNL   ENDFOR2                GET OUT WHEN TAB END IS FOUND     00027100            
+ 000EFE D51F 6020 5020 00020 00020   314 IF2      CLC   32(32,6),32(5)         IF KEY[K] < KEY[SSF]              00027200            
+ 000F04 47B0 C03A            00F0A   315          BNL   ENDIF2                   GO AROUND IF KEY[K] >= KEY[SSF] 00027300            
+ 000F08 1856                         316          LR    5,6                      SSF = K                         00027400            
+ 000F0A                              317 ENDIF2   DS    0H                     ENDIF                             00027500            
+ 000F0A 4160 6040            00040   318          LA    6,64(,6)               INCREMENT K BY 1                  00027600            
+ 000F0E 47F0 C026            00EF6   319          B     FOR2                   GOTO TOP OF INNER FOR LOOP        00027700            
+ 000F12                              320 ENDFOR2  DS    0H                   ENDFOR                              00027800            
+ 000F12 D23F C0B0 3000 00F80 00000   321          MVC   TEMP,0(3)            TEMP = RECORD[TOP]                  00027900            
+ 000F18 D23F 3000 5000 00000 00000   322          MVC   0(64,3),0(5)         RECORD[TOP] = RECORD[SSF]           00028000            
+ 000F1E D23F 5000 C0B0 00000 00F80   323          MVC   0(64,5),TEMP         RECORD[SSF] = TEMP                  00028100            
+ 000F24 4130 3040            00040   324          LA    3,64(,3)             INCREMENT TOP BY 1                  00028200            
+ 000F28 47F0 C018            00EE8   325          B     FOR1                 GOTO TOP OF OUTER FOR LOOP          00028300            
+ 000F2C                              326 ENDFOR1  DS    0H                 ENDFOR                                00028400            
+                                     327 *                                                                       00028500            
+ 000F2C 58D0 D004            00004   328          L     13,4(,13)          GET THE ADDRESS OF THE SAVEAREA       00028600            
+ 000F30 98EC D00C            0000C   329          LM    14,12,12(13)       RESTORE THE CALLING ROUTINE'S REGS    00028700            
+ 000F34 07FE                         330          BR    14                 I'M DONE!                             00028800            
+                                     331          LTORG                                                          00028900            
+                                     332 *                                                                       00029000            
+                                     333 *** STORAGE FOR SORT ROUTINE ***                                        00029100            
+                                     334 *                                                                       00029200            
+ 000F38                              335 SORTSAVE DS    18F                REGISTER SAVEAREA                     00029300            
+ 000F80                              336 TEMP     DS    CL64               TEMPORARY STORAGE AREA FOR SWAPPING   00029400            
+                                     337          END   PGM8                                                     00029500            
+0***  NO   STATEMENTS FLAGGED -  NO   WARNINGS,  NO   ERRORS                                                                         
+0*** DYNAMIC CORE AREA USED:  LOW:   21884 HIGH:    1736 LEAVING:  469948 FREE BYTES. AVERAGE:       69 BYTES/STMT ***               
+0*** ASSEMBLY TIME =    0.001 SECS,   338000 STATEMENTS/SEC ***                                                                      
+0*** PROGRAM EXECUTION BEGINNING - ANY OUTPUT BEFORE EXECUTION TIME MESSAGE IS PRODUCED BY USER PROGRAM ***                          
+1                                         DOMESTIC AND IMPORTED BEER INFORMATION                                                     
+0       ID #      BEER NAME                            BREWERY LOCATION                 CASES       PRICE PER CASE                   
+        ----------------------------------------------------------------------------------------------------------                   
+ 12-345    Anchor Steam                         California               25          $15.99                        
+ 67-861    Ayinger Altbairisch Dunkel           Germany                  36          $28.68                        
+ 69-871    Bass Pale Ale                        England                  14          $24.85                        
+ 23-654    Black & Tan                          United Kingdom           8          $19.99                        
+ 45-693    Boulder Pass Time Pale Ale           Colorado                 17          $17.94                        
+ 19-763    Boulder Planet Porter                Colorado                 1          $22.20                        
+ 67-890    Bud Light                            Missouri                 50          $17.99                        
+ 65-445    Budweiser                            Missouri                 48          $17.99                        
+ 54-875    Celebrator Doppelbock                Germany                  10          $31.68                        
+ 45-454    Coors Light                          Colorado                 29          $17.99                        
+ 32-145    Coors Original                       Colorado                 32          $17.99                        
+ 78-451    Dos Equis Amber Lager                Mexico                   20          $12.99                        
+ 84-613    Foster's Lager                       Australia                17          $12.99                        
+ 21-459    Grolsch Lager                        The Netherlands          29          $13.99                        
+ 12-546    Harp Lager                           Ireland                  17          $12.99                        
+ 48-729    Hazed and Infused Dry Hopped Ale     Colorado                 21          $21.80                        
+ 84-583    J.W. Dundee Honey Brown Lager        New York                 13          $19.03                        
+ 45-782    Killian's Irish Red Lager            Colorado                 31          $24.59                        
+ 78-197    Kirin Lager                          Japan                    16          $14.99                        
+ 45-888    Labatt Blue Lager                    Canada                   2          $09.99                        
+ 13-456    Leinenkugel Red Lager                Wisconsin                8          $13.99                        
+ 12-849    Lindeman's Kreik Lambic              Belgium                  31          $88.68                        
+ 99-546    McEwan's Scottish Ale                Scotland                 35          $35.96                        
+ 12-867    Michelob Light                       Missouri                 51          $10.99                        
+ 78-543    Miller Genuine Draft                 Wisconsin                26          $12.99                        
+ 21-544    Miller Lite                          Wisconsin                10          $17.99                        
+ 15-789    New Belgium Fat Tire Amber Ale       Colorado                 12          $23.64                        
+ 67-852    Paulaner Hefe-Weizen                 Germany                  24          $14.99                        
+ 48-633    Peroni Lager                         Italy                    12          $34.36                        
+ 36-999    Pete's Wicked Ale                    California               24          $21.41                        
+ 79-536    Pilsner Urquell                      Czech Republic           23          $14.99                        
+ 78-562    Red Stripe Lager                     Jamaica                  12          $30.76                        
+ 78-458    Redhook E.S.B                        Washington               24          $26.99                        
+ 12-354    Rolling Rock                         Pennsylvania             5          $20.95                        
+ 87-158    Samuel Adams Boston Lager            Massachusetts            33          $21.41                        
+ 53-547    Samuel Smith's Oatmeal Stout         England                  6          $53.94                        
+ 54-698    Sierra Nevada Pale Ale               California               18          $26.99                        
+ 12-999    Steinlager                           New Zealand              30          $11.99                        
+ 58-712    Stella Artois Pilsner                Belgium                  17          $38.94                        
+ 24-948    TsingTao Lager                       China                    1          $13.58                        
+-       TOTAL STOCK:         838 CASES                                                                                               
+0*** EXECUTION TIME =    0.003 SECS.      6681 INSTRUCTIONS EXECUTED -  2227000 INSTRUCTIONS/SEC ***                                 
+0*** AM004 - NORMAL USER TERMINATION BY RETURN ***                                                                                   
+ !! END OF JES SPOOL FILE !!

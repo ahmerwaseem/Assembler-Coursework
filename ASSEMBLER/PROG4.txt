@@ -1,0 +1,231 @@
+                    J E S 2  J O B  L O G  --  S Y S T E M  S 0 W 1  --  N O D E  Z O S K C T R         
+
+ 
+23.46.40 JOB00465 ---- MONDAY,    03 MAR 2014 ----
+23.46.40 JOB00465  IRR010I  USERID KC03C1C  IS ASSIGNED TO THIS JOB.
+23.46.40 JOB00465  ICH70001I KC03C1C  LAST ACCESS AT 23:43:51 ON MONDAY, MARCH 3, 2014
+23.46.40 JOB00465  $HASP373 KC03C1CA STARTED - INIT 2    - CLASS A - SYS S0W1
+23.46.40 JOB00465  -                                      -----TIMINGS (MINS.)------                          -----PAGING COUNTS----
+23.46.40 JOB00465  -STEPNAME PROCSTEP    RC   EXCP   CONN       TCB       SRB  CLOCK          SERV  WORKLOAD  PAGE  SWAP   VIO SWAPS
+23.46.40 JOB00465  -STEP1                00     53     12       .00       .00     .0            13  BATCH        0     0     0     0
+23.46.40 JOB00465  -KC03C1CA ENDED.  NAME-AHMER WASEEM         TOTAL TCB CPU TIME=      .00 TOTAL ELAPSED TIME=    .0
+23.46.40 JOB00465  $HASP395 KC03C1CA ENDED
+
+------ JES2 JOB STATISTICS ------
+
+
+  03 MAR 2014 JOB EXECUTION DATE
+
+
+          123 CARDS READ
+
+
+          196 SYSOUT PRINT RECORDS
+
+
+            0 SYSOUT PUNCH RECORDS
+
+
+           20 SYSOUT SPOOL KBYTES
+
+
+         0.00 MINUTES EXECUTION TIME
+!! END OF JES SPOOL FILE !!
+       1 //KC03C1CA JOB ,'AHMER WASEEM',MSGCLASS=H,TIME=(,5)                     JOB00465
+       2 //STEP1 EXEC PGM=ASSIST                                                 00000200
+       3 //STEPLIB DD DSN=KC02293.ASSIST.LOADLIB,DISP=SHR                        00000300
+       4 //SYSPRINT DD SYSOUT=*                                                  00000310
+       5 //SYSIN DD *                                                            00000400
+       6 //FT05F001 DD DSN=KC02330.CSCI360.FILES(DATA4),DISP=SHR                 00002400
+!! END OF JES SPOOL FILE !!
+ICH70001I KC03C1C  LAST ACCESS AT 23:43:51 ON MONDAY, MARCH 3, 2014
+IEF236I ALLOC. FOR KC03C1CA STEP1
+IGD103I SMS ALLOCATED TO DDNAME STEPLIB
+IEF237I JES2 ALLOCATED TO SYSPRINT
+IEF237I JES2 ALLOCATED TO SYSIN
+IGD103I SMS ALLOCATED TO DDNAME FT05F001
+IEF142I KC03C1CA STEP1 - STEP WAS EXECUTED - COND CODE 0000
+IGD104I KC02293.ASSIST.LOADLIB                       RETAINED,  DDNAME=STEPLIB 
+IEF285I   KC03C1C.KC03C1CA.JOB00465.D0000102.?         SYSOUT        
+IEF285I   KC03C1C.KC03C1CA.JOB00465.D0000101.?         SYSIN         
+IGD104I KC02330.CSCI360.FILES                        RETAINED,  DDNAME=FT05F001
+IEF373I STEP/STEP1   /START 2014062.2346
+IEF032I STEP/STEP1   /STOP  2014062.2346 
+        CPU:     0 HR  00 MIN  00.01 SEC    SRB:     0 HR  00 MIN  00.00 SEC    
+        VIRT:   584K  SYS:   284K  EXT:        0K  SYS:    11688K
+IEF375I  JOB/KC03C1CA/START 2014062.2346
+IEF033I  JOB/KC03C1CA/STOP  2014062.2346 
+        CPU:     0 HR  00 MIN  00.01 SEC    SRB:     0 HR  00 MIN  00.00 SEC    
+!! END OF JES SPOOL FILE !!
+
+*** ASSIST 4.0/A2-05/15/82  470/V7A/0:OS/VS2  INS=SDFP7/X=BGHO, CHECK/TRC/=1180, OPTS=CDKMPR FROM PENN ST*NIU COMPSCI*LT            
+
+                                                                                                                                    
+
+                                                                                                               PAGE    1            
+
+  LOC  OBJECT CODE    ADDR1 ADDR2  STMT   SOURCE STATEMENT                                                                          
+                                      1 ***********************                                                 00000401            
+                                      2 * AHMER WASEEM                                                          00000410            
+                                      3 * Z1707927                                                              00000420            
+                                      4 * 3/03/14                                                               00000430            
+                                      5 * PROGRAM 4                                                             00000440            
+                                      6 ***********************                                                 00000450            
+000000                                7 MAIN   CSECT                                                            00000500            
+000000                                8        USING MAIN,R15                                                   00000600            
+000000 4590 F014            00014     9        BAL R9,BUILD    CALL BUILD SUBROUTINE                            00000605            
+000004 E060 F180 00F0 00180          10        XDUMP TABLE,240                                                  00000606            
+00000A 4590 F044            00044    11        BAL R9,PRINT7   CALL PRINT7 SUBROUTINE                           00000607            
+00000E 4590 F090            00090    12        BAL R9,PRNTE6   CALL PRNTE6 SUBROUTINE                           00000609            
+000012 07FE                          13        BR R14          EXIT PROGRAM                                     00000610            
+                                     14 ***********************                                                 00000611            
+000014                               15 BUILD  DS 0H           BUILD STARTS HERE                                00000612            
+000014 4150 F180            00180    16        LA R5,TABLE     POINT TO TABLE                                   00000613            
+000018 E000 F0F6 0050 000F6          17 TOP1   XREAD CARD,80   READ RECORD,XREAD LOOP                           00000614            
+00001E 4740 F03E            0003E    18        BC B'0100',EXIT BRANCH IF EOF                                    00000615            
+000022 5320 F0F6            000F6    19        XDECI R2,CARD   READ FIRST NUMBER INTO R2                        00000616            
+000026 4710 F03A            0003A    20 TOP2   BC B'0001',EOR  BRANCH IF END OF RECORD,XDECI LOOP               00000617            
+00002A 5025 0000            00000    21        ST R2,0(R5)     STORE NUMBER IN TABLE                            00000620            
+00002E 4155 0004            00004    22        LA R5,4(R5)     BUMP POINTER UP                                  00000630            
+000032 5321 0000            00000    23        XDECI R2,0(R1)  READ NEXT NUMBER INTO R2                         00000631            
+000036 47F0 F026            00026    24        B TOP2          BACK TO TOP OF XDECI LOOP                        00000632            
+00003A 47F0 F018            00018    25 EOR    B TOP1          BACK TO TOP OF XREAD LOOP                        00000640            
+00003E 5050 F270            00270    26 EXIT   ST R5,EOT       STORE EOT IN R5                                  00000650            
+000042 07F9                          27        BR R9           EXIT BUILD SUBROUTINE                            00000682            
+                                     28 ***********************                                                 00000683            
+000044                               29 PRINT7 DS 0H           PRINT7 STARTS HERE                               00000684            
+000044 1B77                          30        SR R7,R7        ZERO R7                                          00000685            
+000046 1B88                          31        SR R8,R8      HOLDS EACH NUMBER PROCESSED                        00000686            
+000048 4150 F180            00180    32        LA R5,TABLE     POINT TO BEGINNING OF TABLE                      00000687            
+00004C 4160 F2A6            002A6    33        LA R6,PLINE     POINT TO BEGINNING OF PLINE                      00000688            
+000050 E020 F274 0014 00274          34        XPRNT HEADER,20 PRINT HEADER                                     00000689            
+                                     35 *                                                                       00000690            
+000056 5950 F270            00270    36 TOP    C R5,EOT        COMPARE POINTER TO END OF TABLE                  00000691            
+00005A 5885 0000            00000    37        L R8,0(R5)      LOAD NUMBER FROM TABLE INTO R8                   00000693            
+00005E 5286 0000            00000    38        XDECO R8,0(R6)  CONVERT NUM IN R8 AND STORE IN PLINE             00000694            
+000062 4166 000C            0000C    39        LA R6,12(R6)    BUMP UP PLINE POINTER                            00000695            
+000066 4155 0004            00004    40        LA R5,4(R5)     BUMP UP TABLE POINTER                            00000696            
+00006A 4177 0001            00001    41        LA R7,1(R7)     INCREMENT PRINT7 COUNTER FOR PRINT               00000697            
+00006E 4780 F08E            0008E    42        BE DONE         BRANCH TO DONE IF EQUAL                          00000698            
+000072 4720 F32C            0032C    43        BH DIE          BRANCH TO DIE IF HIGHER                          00000699            
+                                     44 *                                                                       00000700            
+000076 5970 F330            00330    45 IF     C R7,=F'7'      COMPARE COUNT/R7 TO 7                            00000701            
+00007A 4770 F08A            0008A    46        BNE SKIP        BRANCH IF NOT EQUAL                              00000702            
+00007E E020 F2A6 0085 002A6          47        XPRNT PLINE,133 PRINT LINE OF NUMBERS                            00000703            
+000084 4160 F2A6            002A6    48        LA R6,PLINE     POINT TO BEGINNING OF PLINE                      00000704            
+000088 1B77                          49        SR R7,R7        ZERO OUT R7                                      00000705            
+00008A                               50 SKIP   DS 0H                                                            00000706            
+00008A 47F0 F056            00056    51        B TOP           BRANCH TO TOP                                    00000707            
+00008E 07F9                          52 DONE   BR R9           BACK TO MAIN                                     00000708            
+
+                                                                                                               PAGE    2            
+
+  LOC  OBJECT CODE    ADDR1 ADDR2  STMT   SOURCE STATEMENT                                                                          
+                                     53 ***********************                                                 00000709            
+000090                               54 PRNTE6 DS 0H           PRNTE6 STARTS HERE                               00000710            
+000090 1B44                          55        SR R4,R4        COUNTER FOR NUM PER LINE PRINT                   00000711            
+000092 1BDD                          56        SR R13,R13      CLEAR R13                                        00000712            
+000094 1B88                          57        SR R8,R8        CLEAR R8                                         00000713            
+000096 4188 0001            00001    58        LA R8,1(R8)     LOAD 1 INTO R8                                   00000714            
+00009A 4150 F180            00180    59        LA R5,TABLE     POINT TO BEGINNING OF TABLE                      00000716            
+00009E 4160 F2A6            002A6    60        LA R6,PLINE     POINT TO BEGINNING OF PLINE                      00000717            
+0000A2 41D0 0006            00006    61        LA R13,6        LOAD 6 INTO R13 FOR DIVISION                     00000718            
+0000A6 E020 F288 001E 00288          62        XPRNT HEADR6,30 PRINT HEADER                                     00000719            
+                                     63 *                                                                       00000720            
+0000AC 5950 F270            00270    64 TOP$   C R5,EOT        COMPARE POINTER TO END OF TABLE                  00000721            
+0000B0 4780 F0F4            000F4    65        BE DONE$        IF EQUAL, BRANCH TO DONE                         00000722            
+0000B4 4720 F32C            0032C    66        BH DIE          IF HIGHER, BRANCH TO DIE                         00000723            
+0000B8 58C5 0000            00000    67        L R12,0(R5)     LOAD NUMBER FROM TABLE INTO R11                  00000724            
+0000BC 18BC                          68        LR R11,R12       LOAD NUMBER COPY INTO R12                       00000725            
+0000BE 1BAA                          69        SR R10,R10      ZERO OUT R10 FOR DIVISION/REMAINDER              00000726            
+0000C0 1CA8                          70        MR R10,R8       MULTIPLIES R11 BY 1/R8                           00000727            
+0000C2 1DAD                          71        DR R10,R13      DIVIDE TABLE NUMBER/R11 BY 6/R13                 00000728            
+                                     72 *                                                                       00000729            
+0000C4 59A0 F334            00334    73 IF1$   C R10,=F'0'     COMPARE REMAINDER TO ZERO TO DETERMINE 6 MULT    00000730            
+0000C8 4770 F0D8            000D8    74        BNE ELIF$       BRANCH IF NOT EQUAL                              00000731            
+0000CC 52C6 0000            00000    75        XDECO R12,0(R6) CONVERT NUM IN R12 AND STORE IN PLINE            00000732            
+0000D0 4144 0001            00001    76        LA R4,1(R4)     INCREMENT PRINT7 COUNTER FOR PRINT               00000733            
+0000D4 4166 000C            0000C    77        LA R6,12(R6)    BUMP UP PLINE POINTER                            00000734            
+                                     78 *                                                                       00000735            
+0000D8 4155 0004            00004    79 ELIF$  LA R5,4(R5)     BUMP UP TABLE POINTER                            00000736            
+                                     80 *                                                                       00000737            
+0000DC 5940 F330            00330    81 IF$    C R4,=F'7'      COMPARE COUNT/R4 TO 7                            00000738            
+0000E0 4770 F0F0            000F0    82        BNE SKIP$       BRANCH IF NOT EQUAL                              00000739            
+0000E4 E020 F2A6 0085 002A6          83        XPRNT PLINE,133 PRINT LINE OF NUMBERS                            00000740            
+0000EA 4160 F2A6            002A6    84        LA R6,PLINE     POINT TO BEGINNING OF PLINE                      00000741            
+0000EE 1B44                          85        SR R4,R4        ZERO OUT R4                                      00000742            
+0000F0                               86 SKIP$  DS 0H                                                            00000743            
+0000F0 47F0 F0AC            000AC    87        B TOP$          BRANCH TO TOP                                    00000744            
+0000F4 07F9                          88 DONE$  BR R9           BACK TO MAIN                                     00000745            
+                                     89 **********************                                                  00000746            
+0000F6 C3C1D9C4C3C1D9C4              90 CARD   DC 20CL4'CARD'                                                   00000747            
+000146 5C                            91        DC CL1'*'                                                        00000748            
+000160                               92        ORG MAIN+((*-MAIN+31)/32*32)                                     00000749            
+000160 E3C1C2D3C540E2E3              93        DC CL32'TABLE STARTS HERE'                                       00000750            
+000180 FFFFFFF1FFFFFFF1              94 TABLE  DC 60F'-15' DEFINES 60 FULL WORDS                                00000751            
+000270 FFFFFFFB                      95 EOT    DC F'-5' END OF TABLE                                            00000752            
+000274 40E3C8C540D5E4D4              96 HEADER DC CL20' THE NUMBERS - ALL'                                      00000753            
+000288 40E3C8C540D5E4D4              97 HEADR6 DC CL30' THE NUMBERS - MULTIPLES OF 6'                           00000754            
+0002A6 D7D3C9D5C5404040              98 PLINE  DC CL133'PLINE'                                                  00000755            
+00032C 0000                          99 DIE    DC H'00' MARKER IF MISS EOT                                      00000756            
+                                    100        LTORG                                                            00000757            
+000330 00000007                     101                =F'7'                                                                        
+000334 00000000                     102                =F'0'                                                                        
+000001                              103 R1     EQU 1                                                            00000760            
+000002                              104 R2     EQU 2                                                            00000800            
+000003                              105 R3     EQU 3                                                            00000900            
+000004                              106 R4     EQU 4                                                            00001000            
+000005                              107 R5     EQU 5                                                            00001100            
+000006                              108 R6     EQU 6                                                            00001200            
+000007                              109 R7     EQU 7                                                            00001300            
+
+                                                                                                               PAGE    3            
+
+  LOC  OBJECT CODE    ADDR1 ADDR2  STMT   SOURCE STATEMENT                                                                          
+000008                              110 R8     EQU 8                                                            00001400            
+000009                              111 R9     EQU 9                                                            00001500            
+00000A                              112 R10    EQU 10                                                           00001600            
+00000B                              113 R11    EQU 11                                                           00001700            
+00000C                              114 R12    EQU 12                                                           00001800            
+00000D                              115 R13    EQU 13                                                           00001900            
+00000E                              116 R14    EQU 14                                                           00002000            
+00000F                              117 R15    EQU 15                                                           00002100            
+                                    118        END                                                              00002200            
+
+***  NO   STATEMENTS FLAGGED -  NO   WARNINGS,  NO   ERRORS                                                                         
+
+*** DYNAMIC CORE AREA USED:  LOW:    6916 HIGH:    1048 LEAVING:  485604 FREE BYTES. AVERAGE:       66 BYTES/STMT ***               
+
+*** ASSEMBLY TIME =    0.000 SECS,   119000 STATEMENTS/SEC ***                                                                      
+
+*** PROGRAM EXECUTION BEGINNING - ANY OUTPUT BEFORE EXECUTION TIME MESSAGE IS PRODUCED BY USER PROGRAM ***                          
+
+BEGIN XSNAP - CALL     1 AT D000000A USER STORAGE                                                                                   
+
+                             CORE ADDRESSES SPECIFIED-     000180 TO 000270                                                         
+000180   00000001 FFFFF82B 00000168 00000203    0000005A 00000032 FFFFFFFF 00000072   *......8.........................*            
+0001A0   000000F0 0002A0BB 0000EB2D 00000003    00001D6E 00032072 0000008D 00000000   *...0............................*            
+0001C0   00093F4F FFFFFE5D 000000DA 0000006F    00002329 0000001B FFFFDC7E 0004C64D   *..............................F.*            
+0001E0   FFFFFDFB 00000009 0000003E 00000059    00000132 000001D0 000000FA 00000076   *................................*            
+000200   FFFFFFAC 00000083 00000192 FFFFDF16    000013F2 00000079 FFFFFFA7 0000000F   *...................2............*            
+000220   000173F4 FFFFFFB0 FFF0BDC1 0000003A    FFFFFFB3 00000204 000039C5 0000000C   *...4.....0.A...............E....*            
+000240   00000006 FFFFFFF1 FFFFFFF1 FFFFFFF1    FFFFFFF1 FFFFFFF1 FFFFFFF1 FFFFFFF1   *.......1...1...1...1...1...1...1*            
+000260   FFFFFFF1 FFFFFFF1 FFFFFFF1 FFFFFFF1    00000244 40E3C8C5 40D5E4D4 C2C5D9E2   *...1...1...1...1.... THE NUMBERS*            
+
+                                                                                                                                    
+THE NUMBERS - ALL                                                                                                                   
+          1       -2005         360         515          90          50          -1                                                 
+        114         240      172219       60205           3        7534      204914                                                 
+        141           0      606031        -419         218         111        9001                                                 
+         27       -9090      312909        -517           9          62          89                                                 
+        306         464         250         118         -84         131         402                                                 
+      -8426        5106         121         -89          15       95220         -80                                                 
+    -999999          58         -77         516       14789          12           6                                                 
+THE NUMBERS - MULTIPLES OF 6                                                                                                        
+        360          90         114         240           0       -9090         306                                                 
+        -84         402        5106       95220         516          12           6                                                 
+
+*** EXECUTION TIME =    0.002 SECS.      1613 INSTRUCTIONS EXECUTED -   806500 INSTRUCTIONS/SEC ***                                 
+
+*** AM004 - NORMAL USER TERMINATION BY RETURN ***                                                                                   
+!! END OF JES SPOOL FILE !!

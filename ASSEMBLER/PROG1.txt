@@ -1,0 +1,122 @@
+                    J E S 2  J O B  L O G  --  S Y S T E M  S 0 W 1  --  N O D E  Z O S K C T R         
+
+ 
+12.12.22 JOB08783 ---- MONDAY,    17 FEB 2014 ----
+12.12.22 JOB08783  IRR010I  USERID KC03C1C  IS ASSIGNED TO THIS JOB.
+12.12.22 JOB08783  ICH70001I KC03C1C  LAST ACCESS AT 12:11:12 ON MONDAY, FEBRUARY 17, 2014
+12.12.22 JOB08783  $HASP373 KC03C1CA STARTED - INIT 2    - CLASS A - SYS S0W1
+12.12.22 JOB08783  -                                      -----TIMINGS (MINS.)------                          -----PAGING COUNTS----
+12.12.22 JOB08783  -STEPNAME PROCSTEP    RC   EXCP   CONN       TCB       SRB  CLOCK          SERV  WORKLOAD  PAGE  SWAP   VIO SWAPS
+12.12.22 JOB08783  -STEP1                00     37      8       .00       .00     .0             8  BATCH        0     0     0     0
+12.12.22 JOB08783  -KC03C1CA ENDED.  NAME-AHMER WASEEM         TOTAL TCB CPU TIME=      .00 TOTAL ELAPSED TIME=    .0
+12.12.22 JOB08783  $HASP395 KC03C1CA ENDED
+
+------ JES2 JOB STATISTICS ------
+
+
+  17 FEB 2014 JOB EXECUTION DATE
+
+
+           35 CARDS READ
+
+
+           87 SYSOUT PRINT RECORDS
+
+
+            0 SYSOUT PUNCH RECORDS
+
+
+            8 SYSOUT SPOOL KBYTES
+
+
+         0.00 MINUTES EXECUTION TIME
+!! END OF JES SPOOL FILE !!
+       1 //KC03C1CA JOB ,'AHMER WASEEM',MSGCLASS=H                               JOB08783
+       2 //STEP1 EXEC PGM=ASSIST                                                 00000200
+       3 //STEPLIB DD DSN=KC02293.ASSIST.LOADLIB,DISP=SHR                        00000300
+       4 //SYSPRINT DD SYSOUT=*                                                  00000310
+       5 //SYSIN DD *                                                            00000400
+!! END OF JES SPOOL FILE !!
+ICH70001I KC03C1C  LAST ACCESS AT 12:11:12 ON MONDAY, FEBRUARY 17, 2014
+IEF236I ALLOC. FOR KC03C1CA STEP1
+IGD103I SMS ALLOCATED TO DDNAME STEPLIB
+IEF237I JES2 ALLOCATED TO SYSPRINT
+IEF237I JES2 ALLOCATED TO SYSIN
+IEF142I KC03C1CA STEP1 - STEP WAS EXECUTED - COND CODE 0000
+IGD104I KC02293.ASSIST.LOADLIB                       RETAINED,  DDNAME=STEPLIB 
+IEF285I   KC03C1C.KC03C1CA.JOB08783.D0000102.?         SYSOUT        
+IEF285I   KC03C1C.KC03C1CA.JOB08783.D0000101.?         SYSIN         
+IEF373I STEP/STEP1   /START 2014048.1212
+IEF032I STEP/STEP1   /STOP  2014048.1212 
+        CPU:     0 HR  00 MIN  00.01 SEC    SRB:     0 HR  00 MIN  00.00 SEC    
+        VIRT:   584K  SYS:   264K  EXT:        0K  SYS:    13248K
+IEF375I  JOB/KC03C1CA/START 2014048.1212
+IEF033I  JOB/KC03C1CA/STOP  2014048.1212 
+        CPU:     0 HR  00 MIN  00.01 SEC    SRB:     0 HR  00 MIN  00.00 SEC    
+!! END OF JES SPOOL FILE !!
+
+*** ASSIST 4.0/A2-05/15/82  470/V7A/0:OS/VS2  INS=SDFP7/X=BGHO, CHECK/TRC/=1180, OPTS=CDKMPR FROM PENN ST*NIU COMPSCI*LT            
+
+                                                                                                                                    
+
+                                                                                                               PAGE    1            
+
+  LOC  OBJECT CODE    ADDR1 ADDR2  STMT   SOURCE STATEMENT                                                                          
+000000                                1 MAIN   CSECT                                                            00000500            
+000000                                2        USING MAIN,R15                                                   00000600            
+000000 581F 001C            0001C     3        L R1,X'01C'(R15)     BRING IN GOALS                              00000610            
+000004 582F 0020            00020     4        L R2,X'020'(R15)   BRING IN ASSISTS                              00000620            
+000008 1A12                           5        AR R1,R2      ADD TOGETHER                                       00000630            
+00000A E160 0000 0000 00000           6        XDUMP                                                            00000640            
+000010 501F 0024            00024     7        ST R1,X'024'(R15)  STORE ANSWER                                  00000650            
+000014 E060 F024 0004 00024           8        XDUMP TOTAL,4 DUMP STORAGE                                       00000660            
+00001A 07FE                           9        BR R14        EXIT PROGRAM                                       00000670            
+                                     10 ********************************                                        00000680            
+00001C 000000AC                      11 GOAL   DC F'172'     FULLWORD GOALS                                     00000690            
+000020 00000134                      12 ASSIST DC F'308'     FULLWORD ASSIST                                    00000691            
+000024 00000064                      13 TOTAL  DC F'100'       TOTAL POINTS                                     00000692            
+000001                               14 R1     EQU 1                                                            00000700            
+000002                               15 R2     EQU 2                                                            00000800            
+000003                               16 R3     EQU 3                                                            00000900            
+000004                               17 R4     EQU 4                                                            00001000            
+000005                               18 R5     EQU 5                                                            00001100            
+000006                               19 R6     EQU 6                                                            00001200            
+000007                               20 R7     EQU 7                                                            00001300            
+000008                               21 R8     EQU 8                                                            00001400            
+000009                               22 R9     EQU 9                                                            00001500            
+00000A                               23 R10    EQU 10                                                           00001600            
+00000B                               24 R11    EQU 11                                                           00001700            
+00000C                               25 R12    EQU 12                                                           00001800            
+00000D                               26 R13    EQU 13                                                           00001900            
+00000E                               27 R14    EQU 14                                                           00002000            
+00000F                               28 R15    EQU 15                                                           00002100            
+                                     29        END                                                              00002200            
+
+***  NO   STATEMENTS FLAGGED -  NO   WARNINGS,  NO   ERRORS                                                                         
+
+*** DYNAMIC CORE AREA USED:  LOW:    1476 HIGH:     616 LEAVING:  491476 FREE BYTES. AVERAGE:       69 BYTES/STMT ***               
+
+*** ASSEMBLY TIME =    0.000 SECS,    30000 STATEMENTS/SEC ***                                                                      
+
+*** PROGRAM EXECUTION BEGINNING - ANY OUTPUT BEFORE EXECUTION TIME MESSAGE IS PRODUCED BY USER PROGRAM ***                          
+
+BEGIN XSNAP - CALL     1 AT E0000010 USER REGISTERS                                                                                 
+
+ REGS 0-7      F4F4F4F4    000001E0    00000134    F4F4F4F4    F4F4F4F4    F4F4F4F4    F4F4F4F4    F4F4F4F4                         
+ REGS 8-15     F4F4F4F4    F4F4F4F4    F4F4F4F4    F4F4F4F4    F4F4F4F4    00000028    FFFE7960    00000000                         
+
+                                                                                                                                    
+
+BEGIN XSNAP - CALL     2 AT E000001A USER STORAGE                                                                                   
+
+                             CORE ADDRESSES SPECIFIED-     000024 TO 000028                                                         
+000020   00000134 000001E0 F5F5F5F5 00000000    F5F5F5F5 F5F5F5F5 F5F5F5F5 F5F5F5F5   *........5555....5555555555555555*            
+
+                                                                                                                                    
+
+*** EXECUTION TIME =    0.000 SECS.         7 INSTRUCTIONS EXECUTED -     7000 INSTRUCTIONS/SEC ***                                 
+
+*** FIRST CARD NOT READ: NO CARDS READ:FILE UNOPENED                                                                                
+
+*** AM004 - NORMAL USER TERMINATION BY RETURN ***                                                                                   
+!! END OF JES SPOOL FILE !!

@@ -1,0 +1,248 @@
+                    J E S 2  J O B  L O G  --  S Y S T E M  S 0 W 1  --  N O D E  Z O S K C T R         
+
+ 
+23.06.54 JOB06088 ---- SUNDAY,    16 FEB 2014 ----
+23.06.54 JOB06088  IRR010I  USERID KC03C1C  IS ASSIGNED TO THIS JOB.
+23.06.54 JOB06088  ICH70001I KC03C1C  LAST ACCESS AT 23:05:18 ON SUNDAY, FEBRUARY 16, 2014
+23.06.54 JOB06088  $HASP373 KC03C1CA STARTED - INIT 2    - CLASS A - SYS S0W1
+23.06.54 JOB06088  -                                      -----TIMINGS (MINS.)------                          -----PAGING COUNTS----
+23.06.54 JOB06088  -STEPNAME PROCSTEP    RC   EXCP   CONN       TCB       SRB  CLOCK          SERV  WORKLOAD  PAGE  SWAP   VIO SWAPS
+23.06.54 JOB06088  -STEP1                00     53     11       .00       .00     .0            10  BATCH        0     0     0     0
+23.06.54 JOB06088  -KC03C1CA ENDED.  NAME-AHMER WASEEM         TOTAL TCB CPU TIME=      .00 TOTAL ELAPSED TIME=    .0
+23.06.54 JOB06088  $HASP395 KC03C1CA ENDED
+
+------ JES2 JOB STATISTICS ------
+
+
+  16 FEB 2014 JOB EXECUTION DATE
+
+
+          143 CARDS READ
+
+
+          210 SYSOUT PRINT RECORDS
+
+
+            0 SYSOUT PUNCH RECORDS
+
+
+           22 SYSOUT SPOOL KBYTES
+
+
+         0.00 MINUTES EXECUTION TIME
+!! END OF JES SPOOL FILE !!
+       1 //KC03C1CA JOB ,'AHMER WASEEM',MSGCLASS=H                               JOB06088
+       2 //STEP1 EXEC PGM=ASSIST                                                 00000200
+       3 //STEPLIB DD DSN=KC02293.ASSIST.LOADLIB,DISP=SHR                        00000300
+       4 //SYSPRINT DD SYSOUT=*                                                  00000310
+       5 //SYSIN DD *                                                            00000400
+       6 //FT05F001 DD DSN=KC02330.CSCI360.FILES(DATA3),DISP=SHR                 00002400
+!! END OF JES SPOOL FILE !!
+ICH70001I KC03C1C  LAST ACCESS AT 23:05:18 ON SUNDAY, FEBRUARY 16, 2014
+IEF236I ALLOC. FOR KC03C1CA STEP1
+IGD103I SMS ALLOCATED TO DDNAME STEPLIB
+IEF237I JES2 ALLOCATED TO SYSPRINT
+IEF237I JES2 ALLOCATED TO SYSIN
+IGD103I SMS ALLOCATED TO DDNAME FT05F001
+IEF142I KC03C1CA STEP1 - STEP WAS EXECUTED - COND CODE 0000
+IGD104I KC02293.ASSIST.LOADLIB                       RETAINED,  DDNAME=STEPLIB 
+IEF285I   KC03C1C.KC03C1CA.JOB06088.D0000102.?         SYSOUT        
+IEF285I   KC03C1C.KC03C1CA.JOB06088.D0000101.?         SYSIN         
+IGD104I KC02330.CSCI360.FILES                        RETAINED,  DDNAME=FT05F001
+IEF373I STEP/STEP1   /START 2014047.2306
+IEF032I STEP/STEP1   /STOP  2014047.2306 
+        CPU:     0 HR  00 MIN  00.01 SEC    SRB:     0 HR  00 MIN  00.00 SEC    
+        VIRT:   584K  SYS:   284K  EXT:        0K  SYS:    13080K
+IEF375I  JOB/KC03C1CA/START 2014047.2306
+IEF033I  JOB/KC03C1CA/STOP  2014047.2306 
+        CPU:     0 HR  00 MIN  00.01 SEC    SRB:     0 HR  00 MIN  00.00 SEC    
+!! END OF JES SPOOL FILE !!
+
+*** ASSIST 4.0/A2-05/15/82  470/V7A/0:OS/VS2  INS=SDFP7/X=BGHO, CHECK/TRC/=1180, OPTS=CDKMPR FROM PENN ST*NIU COMPSCI*LT            
+
+                                                                                                                                    
+
+                                                                                                               PAGE    1            
+
+  LOC  OBJECT CODE    ADDR1 ADDR2  STMT   SOURCE STATEMENT                                                                          
+                                      1 * *********************                                                 00000401            
+                                      2 * AHMER WASEEM                                                          00000410            
+                                      3 * Z1707927                                                              00000420            
+                                      4 * 2/16/14                                                               00000430            
+                                      5 * PROGRAM 3                                                             00000440            
+                                      6 * **********************                                                00000450            
+000000                                7 MAIN   CSECT                                                            00000500            
+000000                                8        USING MAIN,R15                                                   00000600            
+000000 E020 F114 0023 00114           9        XPRNT MSG,35      PRINTS REPORT HEADER                           00000603            
+000006 E020 F137 0035 00137          10        XPRNT MSG2,53     PRINTS REPORT HEADER                           00000604            
+00000C E020 F16C 0038 0016C          11        XPRNT MSG3,56     PRINTS REPORT HEADER                           00000605            
+000012 1B55                          12        SR R5,R5          TOTAL CALC COUNTER                             00000606            
+000014 1B66                          13        SR R6,R6          ADD COUNTER                                    00000607            
+000016 1B77                          14        SR R7,R7          SUB COUNTER                                    00000608            
+000018 1B88                          15        SR R8,R8          MULT COUNTER                                   00000609            
+00001A 1B99                          16        SR R9,R9          DIV COUNTER                                    00000610            
+                                     17 *                                                                       00000615            
+00001C E000 F2B7 0050 002B7          18 TOP    XREAD CARD,80     READS RECORD                                   00000616            
+000022 4740 F0DA            000DA    19        BC B'0100',EXIT   CHECKS EOF                                     00000617            
+000026 5320 F2B7            002B7    20        XDECI R2,CARD     READS OPERATION CODE                           00000618            
+00002A 5331 0000            00000    21        XDECI R3,0(R1)    READS 1ST DIGIT                                00000619            
+00002E 5341 0000            00000    22        XDECI R4,0(R1)    READS 2ND DIGIT                                00000620            
+000032 5920 F104            00104    23 IF     C R2,ONE          COMPARE OP CODE W/ ADD CODE                    00000626            
+000036 4770 F05A            0005A    24        BNE ENDIF         BRANCH IF NOT ADDITION                         00000627            
+00003A 5230 F1B2            001B2    25        XDECO R3,ANUM1    SAVE NUM1                                      00000628            
+00003E 5240 F1BE            001BE    26        XDECO R4,ANUM2    SAVE NUM2                                      00000629            
+000042 1A34                          27        AR R3,R4          ADD NUM1 AND NUM2                              00000630            
+000044 5230 F1D6            001D6    28        XDECO R3,AANS     SAVE ANSWER                                    00000631            
+000048 E020 F1A3 003F 001A3          29        XPRNT ACODE,63    PRINT OPERATION                                00000632            
+00004E 5A60 F104            00104    30        A R6,ONE          ADDITION COUNTER                               00000633            
+000052 5A50 F104            00104    31        A R5,ONE          ADD ONE TO TOTAL CALCS                         00000634            
+000056 47F0 F01C            0001C    32        B TOP             LOOP AGAIN                                     00000636            
+00005A                               33 ENDIF  DS 0H                                                            00000637            
+00005A 5920 F108            00108    34 IF1    C R2,TWO          COMPARE OP CODE W/SUB CODE                     00000638            
+00005E 4770 F082            00082    35        BNE ENDIF1        BRANCH IF NOT SUBTRACTION                      00000639            
+000062 5230 F1F1            001F1    36        XDECO R3,SNUM1    SAVE NUM1                                      00000640            
+000066 5240 F1FD            001FD    37        XDECO R4,SNUM2    SAVE NUM2                                      00000641            
+00006A 1B34                          38        SR R3,R4          SUBTRACT NUM1 AND NUM2                         00000642            
+00006C 5230 F215            00215    39        XDECO R3,SANS     SAVE ANSWER                                    00000643            
+000070 E020 F1E2 003F 001E2          40        XPRNT SCODE,63    PRINT OPERATION                                00000644            
+000076 5A70 F104            00104    41        A R7,ONE          SUB COUNTER                                    00000645            
+00007A 5A50 F104            00104    42        A R5,ONE          ADD ONE TO TOTAL CALCS                         00000646            
+00007E 47F0 F01C            0001C    43        B TOP             LOOP AGAIN                                     00000647            
+000082                               44 ENDIF1 DS 0H                                                            00000648            
+000082 5920 F10C            0010C    45 IF2    C R2,THREE        COMPARE OP CODE/W MULT CODE                    00000649            
+000086 4770 F0AA            000AA    46        BNE ENDIF2        BRANCH IF NOT MULTIPLICATION                   00000650            
+00008A 5230 F230            00230    47        XDECO R3,MNUM1    SAVE NUM1                                      00000651            
+00008E 5240 F23C            0023C    48        XDECO R4,MNUM2    SAVE NUM2                                      00000652            
+000092 1C24                          49        MR R2,R4          MULTIPLY NUM1 AND NUM2                         00000653            
+000094 5230 F254            00254    50        XDECO R3,MANS     SAVE ANSWER                                    00000654            
+000098 E020 F221 003F 00221          51        XPRNT MCODE,63    PRINT OPERATION                                00000655            
+00009E 5A80 F104            00104    52        A R8,ONE          MULT COUNTER                                   00000656            
+
+                                                                                                               PAGE    2            
+
+  LOC  OBJECT CODE    ADDR1 ADDR2  STMT   SOURCE STATEMENT                                                                          
+0000A2 5A50 F104            00104    53        A R5,ONE          ADD ONE TO TOTAL CALCS                         00000657            
+0000A6 47F0 F01C            0001C    54        B TOP             LOOP AGAIN                                     00000658            
+0000AA                               55 ENDIF2 DS 0H                                                            00000659            
+0000AA 5920 F110            00110    56 IF3    C R2,FOUR         COMPARE OP CODE W/DIV CODE                     00000660            
+0000AE 4770 F0DA            000DA    57        BNE ENDIF3        BRANCH IF NOT DIVISION                         00000661            
+0000B2 5230 F26F            0026F    58        XDECO R3,DNUM1    SAVE NUM1                                      00000662            
+0000B6 5240 F27B            0027B    59        XDECO R4,DNUM2    SAVE NUM2                                      00000663            
+0000BA 18B4                          60        LR R11,R4         LOAD INTO ODD REGISTER                         00000664            
+0000BC 1B22                          61        SR R2,R2          CLEAR R2                                       00000665            
+0000BE 1D2B                          62        DR R2,R11         DIVIDE R3/R11                                  00000666            
+0000C0 5230 F293            00293    63        XDECO R3,DANS     SAVE ANSWER                                    00000667            
+0000C4 5220 F2AB            002AB    64        XDECO R2,REM      SAVE REMAINDER FROM R2                         00000668            
+0000C8 E020 F260 0057 00260          65        XPRNT DCODE,87    PRINT OPERATION                                00000669            
+0000CE 5A90 F104            00104    66        A R9,ONE          DIVISION COUNTER                               00000670            
+0000D2 5A50 F104            00104    67        A R5,ONE          ADD ONE TO TOTAL CALCS                         00000671            
+0000D6 47F0 F01C            0001C    68        B TOP                                                            00000672            
+0000DA                               69 ENDIF3 DS 0H                                                            00000673            
+0000DA 5250 F31B            0031B    70 EXIT   XDECO R5,CNT     SAVE TOTAL COUNTER                              00000674            
+0000DE 5260 F331            00331    71        XDECO R6,ADDCT   SAVE ADDITION COUNTER                           00000675            
+0000E2 5270 F34B            0034B    72        XDECO R7,SUBCT   SAVE SUBTRACTION COUNTER                        00000676            
+0000E6 5280 F367            00367    73        XDECO R8,MULTCT  SAVE MULTIPLICATION COUNTER                     00000677            
+0000EA 5290 F37E            0037E    74        XDECO R9,DIVCT   SAVE DIVISION COUNTER                           00000678            
+0000EE E020 F16C 0037 0016C          75        XPRNT MSG3,55    PRINT DIVIDER                                   00000679            
+0000F4 E020 F307 0020 00307          76        XPRNT MSG4,32    PRINT TOTAL CALCULATIONS                        00000680            
+0000FA E020 F327 0063 00327          77        XPRNT ADD,99     PRINT OPERATION TOTALS                          00000681            
+000100 07FE                          78        BR R14           EXIT PROGRAM                                    00000682            
+                                     79 ********************************                                        00000683            
+000104 00000001                      80 ONE    DC F'1'          INCREMENT COUNTERS/ADD CODE                     00000684            
+000108 00000002                      81 TWO    DC F'2'          SUB CODE                                        00000685            
+00010C 00000003                      82 THREE  DC F'3'          MULT CODE                                       00000686            
+000110 00000004                      83 FOUR   DC F'4'           DIV CODE                                       00000687            
+000114 604040                        84 MSG    DC CL3'-'         CARRAIGE CONTROL                               00000688            
+000117 4040404040404040              85 MSG1   DC CL32'          RESULTS OF ARITHMETIC'                         00000689            
+000137 40D6D7C5D9C1E3C9              86 MSG2   DC CL53' OPERATION            NUM 1       NUM 2        RESULT'   00000690            
+00016C 6060606060606060              87 MSG3   DC CL55'-------------------------------------------------------' 00000691            
+0001A3 40C1C4C4C9E3C9D6              88 ACODE  DC CL15' ADDITION      '  ADDITION PRINT                         00000692            
+0001B2 40D5E4D4F1404040              89 ANUM1  DC CL12' NUM1'            ADDITION NUM1 PRINT                    00000693            
+0001BE 40D5E4D4F2404040              90 ANUM2  DC CL12' NUM2'            ADDITION NUM2 PRINT                    00000694            
+0001CA 40E2E4D47A404040              91 SUM    DC CL12' SUM:'            SUM PRINT                              00000695            
+0001D6 40C1D5E240404040              92 AANS   DC CL12' ANS'             SUM                                    00000696            
+0001E2 40E2E4C2E3D9C1C3              93 SCODE  DC CL15' SUBTRACTION  '   SUBTRACTION PRINT                      00000697            
+0001F1 40D5E4D4F1404040              94 SNUM1  DC CL12' NUM1'            SUBTRACT NUM1 PRINT                    00000698            
+0001FD 40D5E4D4F2404040              95 SNUM2  DC CL12' NUM2'            SUBTRACT NUM2 PRINT                    00000699            
+000209 40C4C9C6C6C5D9C5              96 DIFF   DC CL12' DIFFERENCE:'     DIFF PRINT                             00000700            
+000215 40C1D5E240404040              97 SANS   DC CL12' ANS'             DIFFERENCE                             00000701            
+000221 40D4E4D3E3C9D7D3              98 MCODE  DC CL15' MULTIPLICATION'   MULT PRINT                            00000702            
+000230 40D5E4D4F1404040              99 MNUM1  DC CL12' NUM1'             MULT NUM1 PRINT                       00000703            
+00023C 40D5E4D4F2404040             100 MNUM2  DC CL12' NUM2'             MULT NUM2 PRINT                       00000704            
+000248 40D7D9D6C4E4C3E3             101 PROD   DC CL12' PRODUCT:'         PRODUCT PRINT                         00000705            
+000254 40C1D5E240404040             102 MANS   DC CL12' ANS'              PRODUCT                               00000706            
+000260 40C4C9E5C9E2C9D6             103 DCODE  DC CL15' DIVISION     '    DIV PRINT                             00000707            
+00026F 40D5E4D4F1404040             104 DNUM1  DC CL12' NUM1'             DIV NUM1 PRINT                        00000708            
+00027B 40D5E4D4F2404040             105 DNUM2  DC CL12' NUM2'             DIV NUM2 PRINT                        00000709            
+000287 40D8E4D6E3C9C5D5             106 QUOT   DC CL12' QUOTIENT:'        QUOTIENT PRINT                        00000710            
+000293 40C1D5E240404040             107 DANS   DC CL12' ANS'              QUOTIENT                              00000711            
+00029F 40D9C5D4C1C9D5C4             108 RMDR   DC CL12' REMAINDER:'       REMAINDER PRINT                       00000712            
+0002AB 40D9C5D440404040             109 REM    DC CL12' REM'              REMAINDER                             00000713            
+
+                                                                                                               PAGE    3            
+
+  LOC  OBJECT CODE    ADDR1 ADDR2  STMT   SOURCE STATEMENT                                                                          
+0002B7 C3C1D9C4C3C1D9C4             110 CARD   DC 20CL4'CARD'            80 BYTE CARD                           00000714            
+000307 40E3D6E3C1D340C3             111 MSG4   DC CL20' TOTAL CALCULATIONS:'                                    00000715            
+00031B 40C3D5E340404040             112 CNT    DC CL12' CNT'                                                    00000716            
+000327 40C1C4C4C9E3C9D6             113 ADD    DC CL10' ADDITION:'           PRINT                              00000717            
+000331 40C1C4C4C3E34040             114 ADDCT  DC CL12' ADDCT'               ADDN COUNTER                       00000718            
+00033D 40E2E4C2E3D9C1C3             115 SUB    DC CL14' SUBTRACTION :'       PRINT                              00000719            
+00034B 40E2E4C2C3E34040             116 SUBCT  DC CL12' SUBCT'               SUB COUNTER                        00000720            
+000357 40D4E4D3E3C9D7D3             117 MULT   DC CL16' MULTIPLICATION:'     PRINT                              00000721            
+000367 40D4E4D3E3C3E340             118 MULTCT DC CL12' MULTCT'              MULT COUNTER                       00000722            
+000373 40C4C9E5C9E2C9D6             119 DIV    DC CL11' DIVISION :'          PRINT                              00000723            
+00037E 40C4C9E5C3E34040             120 DIVCT  DC CL12' DIVCT'               DIV COUNTER                        00000724            
+000001                              121 R1     EQU 1                                                            00000730            
+000002                              122 R2     EQU 2                                                            00000800            
+000003                              123 R3     EQU 3                                                            00000900            
+000004                              124 R4     EQU 4                                                            00001000            
+000005                              125 R5     EQU 5                                                            00001100            
+000006                              126 R6     EQU 6                                                            00001200            
+000007                              127 R7     EQU 7                                                            00001300            
+000008                              128 R8     EQU 8                                                            00001400            
+000009                              129 R9     EQU 9                                                            00001500            
+00000A                              130 R10    EQU 10                                                           00001600            
+00000B                              131 R11    EQU 11                                                           00001700            
+00000C                              132 R12    EQU 12                                                           00001800            
+00000D                              133 R13    EQU 13                                                           00001900            
+00000E                              134 R14    EQU 14                                                           00002000            
+00000F                              135 R15    EQU 15                                                           00002100            
+                                    136        END                                                              00002200            
+
+***  NO   STATEMENTS FLAGGED -  NO   WARNINGS,  NO   ERRORS                                                                         
+
+*** DYNAMIC CORE AREA USED:  LOW:    8808 HIGH:    1460 LEAVING:  483300 FREE BYTES. AVERAGE:       74 BYTES/STMT ***               
+
+*** ASSEMBLY TIME =    0.000 SECS,   137000 STATEMENTS/SEC ***                                                                      
+
+*** PROGRAM EXECUTION BEGINNING - ANY OUTPUT BEFORE EXECUTION TIME MESSAGE IS PRODUCED BY USER PROGRAM ***                          
+
+
+            RESULTS OF ARITHMETIC                                                                                                   
+OPERATION            NUM 1       NUM 2        RESULT                                                                                
+
+
+------------------------------------------------------                                                                              
+ADDITION               987          45 SUM:               1032                                                                      
+MULTIPLICATION       12345           3 PRODUCT:          37035                                                                      
+MULTIPLICATION           9         999 PRODUCT:           8991                                                                      
+DIVISION              5890           4 QUOTIENT:          1472 REMAINDER:            2                                              
+SUBTRACTION             38        9308 DIFFERENCE:       -9270                                                                      
+ADDITION              2468        9753 SUM:              12221                                                                      
+MULTIPLICATION          11          30 PRODUCT:            330                                                                      
+DIVISION              1977          24 QUOTIENT:            82 REMAINDER:            9                                              
+DIVISION                 0          15 QUOTIENT:             0 REMAINDER:            0                                              
+SUBTRACTION            465         360 DIFFERENCE:         105                                                                      
+DIVISION               465         360 QUOTIENT:             1 REMAINDER:          105                                              
+ADDITION             10203       40506 SUM:              50709                                                                      
+
+
+------------------------------------------------------                                                                              
+TOTAL CALCULATIONS:          12                                                                                                     
+ADDITION:           3 SUBTRACTION :           2 MULTIPLICATION:           3 DIVISION :           4                                  
+
+*** EXECUTION TIME =    0.001 SECS.       251 INSTRUCTIONS EXECUTED -   251000 INSTRUCTIONS/SEC ***                                 
+
+*** AM004 - NORMAL USER TERMINATION BY RETURN ***                                                                                   
+!! END OF JES SPOOL FILE !!

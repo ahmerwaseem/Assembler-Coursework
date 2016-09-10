@@ -1,0 +1,570 @@
+                    J E S 2  J O B  L O G  --  S Y S T E M  S 0 W 1  --  N O D E  Z O S K C T R         
+
+ 
+19.08.26 JOB08644 ---- THURSDAY,  17 APR 2014 ----
+19.08.26 JOB08644  IRR010I  USERID KC03C1C  IS ASSIGNED TO THIS JOB.
+19.08.26 JOB08644  ICH70001I KC03C1C  LAST ACCESS AT 19:07:03 ON THURSDAY, APRIL 17, 2014
+19.08.26 JOB08644  $HASP373 KC03C1CA STARTED - INIT 2    - CLASS A - SYS S0W1
+19.08.26 JOB08644  -                                      -----TIMINGS (MINS.)------                          -----PAGING COUNTS----
+19.08.26 JOB08644  -STEPNAME PROCSTEP    RC   EXCP   CONN       TCB       SRB  CLOCK          SERV  WORKLOAD  PAGE  SWAP   VIO SWAPS
+19.08.26 JOB08644  -STEP1                00     58     13       .00       .00     .0            17  BATCH        0     0     0     0
+19.08.26 JOB08644  -KC03C1CA ENDED.  NAME-AHMER WASEEM         TOTAL TCB CPU TIME=      .00 TOTAL ELAPSED TIME=    .0
+19.08.26 JOB08644  $HASP395 KC03C1CA ENDED
+
+------ JES2 JOB STATISTICS ------
+
+
+  17 APR 2014 JOB EXECUTION DATE
+
+
+          340 CARDS READ
+
+
+          519 SYSOUT PRINT RECORDS
+
+
+            0 SYSOUT PUNCH RECORDS
+
+
+           56 SYSOUT SPOOL KBYTES
+
+
+         0.00 MINUTES EXECUTION TIME
+!! END OF JES SPOOL FILE !!
+       1 //KC03C1CA JOB ,'AHMER WASEEM',MSGCLASS=H,TIME=(,5)                     JOB08644
+       2 //STEP1 EXEC PGM=ASSIST                                                 00000200
+       3 //STEPLIB DD DSN=KC02293.ASSIST.LOADLIB,DISP=SHR                        00000300
+       4 //SYSPRINT DD SYSOUT=*                                                  00000310
+       5 //SYSIN DD *                                                            00000400
+       6 //FT05F001 DD DSN=KC02330.CSCI360.FILES(DATA7),DISP=SHR                 00002400
+!! END OF JES SPOOL FILE !!
+ICH70001I KC03C1C  LAST ACCESS AT 19:07:03 ON THURSDAY, APRIL 17, 2014
+IEF236I ALLOC. FOR KC03C1CA STEP1
+IGD103I SMS ALLOCATED TO DDNAME STEPLIB
+IEF237I JES2 ALLOCATED TO SYSPRINT
+IEF237I JES2 ALLOCATED TO SYSIN
+IGD103I SMS ALLOCATED TO DDNAME FT05F001
+IEF142I KC03C1CA STEP1 - STEP WAS EXECUTED - COND CODE 0000
+IGD104I KC02293.ASSIST.LOADLIB                       RETAINED,  DDNAME=STEPLIB 
+IEF285I   KC03C1C.KC03C1CA.JOB08644.D0000102.?         SYSOUT        
+IEF285I   KC03C1C.KC03C1CA.JOB08644.D0000101.?         SYSIN         
+IGD104I KC02330.CSCI360.FILES                        RETAINED,  DDNAME=FT05F001
+IEF373I STEP/STEP1   /START 2014107.1908
+IEF032I STEP/STEP1   /STOP  2014107.1908 
+        CPU:     0 HR  00 MIN  00.02 SEC    SRB:     0 HR  00 MIN  00.00 SEC    
+        VIRT:   584K  SYS:   284K  EXT:        0K  SYS:    15676K
+IEF375I  JOB/KC03C1CA/START 2014107.1908
+IEF033I  JOB/KC03C1CA/STOP  2014107.1908 
+        CPU:     0 HR  00 MIN  00.02 SEC    SRB:     0 HR  00 MIN  00.00 SEC    
+!! END OF JES SPOOL FILE !!
+
+*** ASSIST 4.0/A2-05/15/82  470/V7A/0:OS/VS2  INS=SDFP7/X=BGHO, CHECK/TRC/=1180, OPTS=CDKMPR FROM PENN ST*NIU COMPSCI*LT            
+
+                                                                                                                                    
+
+                                                                                                               PAGE    1            
+
+  LOC  OBJECT CODE    ADDR1 ADDR2  STMT   SOURCE STATEMENT                                                                          
+                                      1 *********************************************************************   00000401            
+                                      2 * AHMER WASEEM                                                          00000410            
+                                      3 * ERNESTO RODRIGUEZ                                                     00000420            
+                                      4 * 4/12/14                                                               00000430            
+                                      5 * PROGRAM 7:PROGRAM READS IN A FILE, PUTS INTO A TABLE, READS IN MORE   00000440            
+                                      6 * RECORDS, UPDATES TABLE, SORTS TABLE BY PLAYER NUM,AND PRINTS RESULTS  00000441            
+                                      7 **********************************************************************  00000450            
+000000                                8 MAIN   CSECT                                                            00000500            
+000000 90EC D00C            0000C     9        STM R14,R12,12(R13)                                              00000520            
+000004 18CF                          10        LR R12,R15                                                       00000530            
+000000                               11        USING MAIN,R12                                                   00000540            
+000006 41E0 C084            00084    12        LA R14,MSAVE            STANDARD LINKAGE                         00000550            
+00000A 50ED 0008            00008    13        ST R14,8(R13)                                                    00000560            
+00000E 50DE 0004            00004    14        ST R13,4(R14)                                                    00000570            
+000012 18DE                          15        LR R13,R14                                                       00000580            
+                                     16 *                                                                       00000581            
+000014 4150 C100            00100    17        LA R5,TABLE             LOAD TABLE INTO R5                       00000582            
+000018 5050 C594            00594    18        ST R5,NEXT              STORE R5 INTO NEXT                       00000590            
+00001C 4110 C074            00074    19        LA R1,PLIST             LOAD PARM LIST INTO R1                   00000610            
+000020 58F0 C5A0            005A0    20        L R15,=V(BUILD)         GO TO BUILD SUBROUTINE                   00000620            
+000024 05EF                          21        BALR R14,R15                                                     00000621            
+000026 D203 C594 C598 00594 00598    22        MVC NEXT(4),EOT         PUT EOT INTO NEXT                        00000623            
+00002C 4110 C074            00074    23        LA R1,PLIST             LOAD PARM LIST INTO R1                   00000624            
+000030 58F0 C5A0            005A0    24        L R15,=V(BUILD)         GO TO BUILD SUBROUTINE                   00000625            
+000034 05EF                          25        BALR R14,R15                                                     00000626            
+000036 D203 C594 C598 00594 00598    26        MVC NEXT(4),EOT         PUT EOT INTO NEXT                        00000627            
+00003C E060 C100 0280 00100          27        XDUMP TABLE,640                                                  00000628            
+000042 4110 C07C            0007C    28        LA R1,PLIST1            LOAD PARM LIST INTO R1                   00000629            
+000046 58F0 C5A4            005A4    29        L R15,=V(PRINT)         GO TO BUILD SUBROUTINE                   00000630            
+00004A 05EF                          30        BALR R14,R15                                                     00000631            
+00004C 4110 C07C            0007C    31        LA R1,PLIST1            LOAD PARM LIST INTO R1                   00000632            
+000050 58F0 C5A8            005A8    32        L R15,=V(UPDATE)        GO TO BUILD SUBROUTINE                   00000633            
+000054 05EF                          33        BALR R14,R15                                                     00000634            
+000056 4110 C07C            0007C    34        LA R1,PLIST1            LOAD PARM LIST INTO R1                   00000636            
+00005A 58F0 C5AC            005AC    35        L R15,=V(SORT)          GO TO SORT SUBROUTINE                    00000637            
+00005E 05EF                          36        BALR R14,R15                                                     00000638            
+000060 4110 C07C            0007C    37        LA R1,PLIST1            LOAD PARM LIST INTO R1                   00000639            
+000064 58F0 C5A4            005A4    38        L R15,=V(PRINT)         GO TO PRINT SUBROUTINE                   00000640            
+000068 05EF                          39        BALR R14,R15                                                     00000641            
+                                     40 *                                                                       00000642            
+00006A 58DD 0004            00004    41        L R13,4(R13)                                                     00000643            
+00006E 98EC D00C            0000C    42        LM R14,R12,12(R13)                                               00000644            
+000072 07FE                          43        BR R14                        EXIT PROGRAM                       00000645            
+                                     44 **********************************************************************  00000646            
+000074 0000059400000598              45 PLIST  DC A(NEXT,EOT)                                                   00000647            
+00007C 0000010000000598              46 PLIST1 DC A(TABLE,EOT)                                                  00000648            
+000084 FFFFFFFFFFFFFFFF              47 MSAVE  DC 18F'-1'                                                       00000649            
+0000E0                               48        ORG MAIN+((*-MAIN+31)/32*32)                                     00000650            
+0000E0 E3C1C2D3C540E2E3              49        DC CL32'TABLE STARTS HERE'                                       00000651            
+000100 4040404040404040              50 TABLE  DC 30CL39' '                                                     00000652            
+000594 FFFFFFFF                      51 NEXT   DC F'-1'                                                         00000653            
+000598 FFFFFFFF                      52 EOT    DC F'-1'                                                         00000654            
+
+                                                                                                               PAGE    2            
+
+  LOC  OBJECT CODE    ADDR1 ADDR2  STMT   SOURCE STATEMENT                                                                          
+                                     53        LTORG                                                            00000655            
+0005A0 000005B0                      54                =V(BUILD)                                                                    
+0005A4 000006D0                      55                =V(PRINT)                                                                    
+0005A8 000009B8                      56                =V(UPDATE)                                                                   
+0005AC 00000B58                      57                =V(SORT)                                                                     
+                                     58 **********************************************************************  00000656            
+                                     59 * BUILD SUBROUTINE:                                                     00000657            
+                                     60 * HAS A PARAMETER LIST OF NEXT AND EOT                                  00000658            
+                                     61 * READS IN A FILE AND POPULATES A TABLE UNTIL END OF FILE IS REACHED    00000659            
+                                     62 * OR IF A RECORD BEGINNING WITH -1 IS FOUND.                            00000660            
+                                     63 **********************************************************************  00000661            
+0005B0                               64 BUILD  CSECT                     BUILD STARTS HERE                      00000662            
+0005B0 90EC D00C            0000C    65        STM R14,R12,12(R13)                                              00000663            
+0005B4 18CF                          66        LR R12,R15                                                       00000664            
+0005B0                               67        USING BUILD,R12                                                  00000665            
+0005B6 41E0 C074            00624    68        LA R14,BSAVE              STANDARD LINKAGE                       00000666            
+0005BA 50ED 0008            00008    69        ST R14,8(R13)                                                    00000667            
+0005BE 50DE 0004            00004    70        ST R13,4(R14)                                                    00000668            
+0005C2 18DE                          71        LR R13,R14                                                       00000669            
+0005C4 9823 1000            00000    72        LM R2,R3,0(R1)                                                   00000670            
+                                     73 *                                                                       00000671            
+0005C8 5822 0000            00000    74        L R2,0(R2)               LOAD TABLE INTO R2                      00000672            
+0005CC 4142 0000            00000    75        LA R4,0(R2)              POINT R4 TO TABLE                       00000673            
+0005D0 E000 C0BC 0050 0066C          76 TOP    XREAD CARD,80            READ RECORD,XREAD LOOP                  00000674            
+0005D6 4740 C066            00616    77        BC B'0100',EXIT          BRANCH IF EOF                           00000675            
+0005DA D501 C0BC C110 0066C 006C0    78        CLC PNUM(2),=CL12'-1'    CHECK FOR -1                            00000676            
+0005E0 4780 C066            00616    79        BE EXIT                  SKIP RECORD IF -1                       00000677            
+0005E4 F211 4000 C0BC 00000 0066C    80        PACK 0(2,R4),PNUM        PACK PLAYER NUM                         00000678            
+0005EA D200 4002 C0BF 00002 0066F    81        MVC 2(1,R4),POS          MOVE POS INTO TABLE                     00000679            
+0005F0 D218 4003 C0C1 00003 00671    82        MVC 3(25,R4),NAME        MOVE NAME INTO TABLE                    00000680            
+0005F6 F211 401C C0DA 0001C 0068A    83        PACK 28(2,R4),GAMES      PACK GAMES                              00000681            
+0005FC F211 401E C0DD 0001E 0068D    84        PACK 30(2,R4),GOALS      PACK GOALS                              00000682            
+000602 F212 4020 C0E0 00020 00690    85        PACK 32(2,R4),ASSIST     PACK ASSISTS                            00000683            
+000608 F223 4022 C0E4 00022 00694    86        PACK 34(3,R4),SHOTS      PACK SHOTS                              00000684            
+00060E 4144 0027            00027    87        LA R4,39(R4)             BUMP UP POINTER FOR NEXT ENTRY          00000685            
+000612 47F0 C020            005D0    88        B TOP                    BACK TO TOP OF XREAD LOOP               00000686            
+                                     89 *                                                                       00000687            
+000616 5043 0000            00000    90 EXIT   ST R4,0(R3)              STORE EOT IN R4                         00000688            
+00061A 58DD 0004            00004    91        L R13,4(R13)                                                     00000689            
+00061E 98EC D00C            0000C    92        LM R14,R12,12(R13)                                               00000690            
+000622 07FE                          93        BR R14                   EXIT BUILD SUBROUTINE                   00000691            
+                                     94 **********************************************************************  00000692            
+000624 FFFFFFFFFFFFFFFF              95 BSAVE  DC 18F'-1'                                                       00000693            
+00066C                               96 CARD   DC 0CL80'CARD'                                                   00000694            
+00066C 60F1                          97 PNUM   DC CL2'-1'                                                       00000695            
+00066E 40                            98 BLK1   DC CL1' '                                                        00000696            
+00066F D7                            99 POS    DC CL1'P'                                                        00000697            
+000670 40                           100 BLK2   DC CL1' '                                                        00000698            
+000671 D7D3C1E8C5D940D5             101 NAME   DC CL25'PLAYER NAME'                                             00000699            
+00068A 001D                         102 GAMES  DC PL2'-1'                                                       00000700            
+00068C 40                           103 BLK3   DC CL1' '                                                        00000701            
+00068D 001D                         104 GOALS  DC PL2'-1'                                                       00000702            
+00068F 40                           105 BLK4   DC CL1' '                                                        00000703            
+000690 00001D                       106 ASSIST DC PL3'-1'                                                       00000704            
+000693 40                           107 BLK5   DC CL1' '                                                        00000705            
+000694 0000001D                     108 SHOTS  DC PL4'-1'                                                       00000706            
+000698 4040404040404040             109 BLK6   DC CL36' '                                                       00000707            
+
+                                                                                                               PAGE    3            
+
+  LOC  OBJECT CODE    ADDR1 ADDR2  STMT   SOURCE STATEMENT                                                                          
+                                    110        LTORG                                                            00000708            
+0006C0 60F1404040404040             111                =CL12'-1'                                                                    
+                                    112 **********************************************************************  00000709            
+                                    113 * PRINT SUBROUTINE                                                      00000710            
+                                    114 * PARMATER LIST: TABLE AND EOT                                          00000711            
+                                    115 * PRINT LOOPS THROUGH THE TABLE AND PRINTS INFORMATION ABOUT EVERY      00000712            
+                                    116 * HOCKEY PLAYER. CALCULATES & DISPLAYS TOTAL POINTS AND POSITION        00000713            
+                                    117 **********************************************************************  00000714            
+0006D0                              118 PRINT  CSECT                     PRINT ROUTINE STARTS                   00000715            
+0006D0 90EC D00C            0000C   119        STM R14,R12,12(R13)                                              00000716            
+0006D4 18CF                         120        LR R12,R15                                                       00000717            
+0006D0                              121        USING PRINT,R12                                                  00000718            
+0006D6 41E0 C1C8            00898   122        LA R14,PSAVE              STANDARD LINKAGE                       00000719            
+0006DA 50ED 0008            00008   123        ST R14,8(R13)                                                    00000720            
+0006DE 50DE 0004            00004   124        ST R13,4(R14)                                                    00000721            
+0006E2 18DE                         125        LR R13,R14                                                       00000722            
+0006E4 9823 1000            00000   126        LM R2,R3,0(R1)                                                   00000723            
+                                    127 *                                                                       00000724            
+0006E8 4142 0000            00000   128        LA R4,0(R2)                      LOAD BEGIN OF TABLE INTO R4     00000725            
+0006EC D21F C22E C16E 008FE 0083E   129        MVC PLINE+30(32),HEADER          INSERT HEADER                   00000726            
+0006F2 E020 C210 0085 008E0         130        XPRNT PLINE,133                  PRINT HEADER                    00000727            
+0006F8 9240 C210      008E0         131        MVI PLINE,C' '                   CLEAR PRINTLINE                 00000728            
+0006FC D283 C211 C210 008E1 008E0   132        MVC PLINE+1(132),PLINE                                           00000729            
+000702 D200 C212 C2C0 008E2 00990   133        MVC PLINE+2(1),=CL1'#'           # LABEL                         00000730            
+000708 D206 C215 C2C1 008E5 00991   134        MVC PLINE+5(7),=CL7'PLAYER'      PLAYER LABEL                    00000731            
+00070E D207 C22F C298 008FF 00968   135        MVC PLINE+31(8),=CL8'POSITION'   POSITION LABEL                  00000732            
+000714 D204 C23A C2C8 0090A 00998   136        MVC PLINE+42(5),=CL5'GAMES'      GAMES LABEL                     00000733            
+00071A D204 C242 C2CD 00912 0099D   137        MVC PLINE+50(5),=CL5'GOALS'      GOAL LABEL                      00000734            
+000720 D206 C249 C2D2 00919 009A2   138        MVC PLINE+57(7),=CL7'ASSISTS'    ASSISTS LABEL                   00000735            
+000726 D205 C252 C2B0 00922 00980   139        MVC PLINE+66(6),=CL6'POINTS'     POINTS LABEL                    00000736            
+00072C D204 C25B C2D9 0092B 009A9   140        MVC PLINE+75(5),=CL5'SHOTS'      SHOTS LABEL                     00000737            
+000732 D209 C263 C2B6 00933 00986   141        MVC PLINE+83(10),=CL10'SHOOTING %' SHOOTING % LABEL              00000738            
+000738 E020 C210 0085 008E0         142        XPRNT PLINE,133                   PRINT LABELS                   00000739            
+00073E 9260 C210      008E0         143        MVI PLINE,C'-'                    FILL IN LINE FOR HEADER        00000740            
+000742 D25E C211 C210 008E1 008E0   144        MVC PLINE+1(95),PLINE                                            00000741            
+000748 E020 C210 0085 008E0         145        XPRNT PLINE,133                   PRINT LINE                     00000742            
+00074E 9240 C210      008E0         146        MVI PLINE,C' '                    CLEAR PRINT LINE               00000743            
+000752 D283 C211 C210 008E1 008E0   147        MVC PLINE+1(132),PLINE            CLEAR PRINT LINE               00000744            
+000758 5943 0000            00000   148 DO     C R4,0(R3)                        IF AT END OF TABLE             00000745            
+00075C 4780 C164            00834   149        BE EXIT1                          BRANCH TO EXIT                 00000746            
+000760 4720 C296            00966   150        BH DIE                            IF HIGHER, KILL                00000747            
+000764 D203 C210 C2A8 008E0 00978   151        MVC PLINE+0(4),=XL4'40202020'     NUM IN PLINE                   00000748            
+00076A DE03 C210 4000 008E0 00000   152        ED PLINE+0(4),0(R4)                                              00000749            
+000770 D218 C215 4003 008E5 00003   153        MVC PLINE+5(25),3(R4)               NAME IN PLINE                00000750            
+000776 D203 C23A C2AC 0090A 0097C   154        MVC PLINE+42(4),=XL4'40202120'      GAMES IN PLINE               00000751            
+00077C DE03 C23A 401C 0090A 0001C   155        ED PLINE+42(4),28(R4)                                            00000752            
+000782 D203 C242 C2AC 00912 0097C   156        MVC PLINE+50(4),=XL4'40202120'      GOALS IN PLINE               00000753            
+000788 DE03 C242 401E 00912 0001E   157        ED PLINE+50(4),30(R4)                                            00000754            
+00078E D203 C24A C2AC 0091A 0097C   158        MVC PLINE+58(4),=XL4'40202120'      ASSISTS IN PLINE             00000755            
+000794 DE03 C24A 4020 0091A 00020   159        ED PLINE+58(4),32(R4)                                            00000756            
+00079A F811 C1B6 401E 00886 0001E   160        ZAP ADD(2),30(2,R4)                 ZAP GOALS INTO ADD           00000757            
+0007A0 FA11 C1B6 4020 00886 00020   161        AP ADD(2),32(2,R4)                  ADD GOALS & ASSISTS          00000758            
+0007A6 D203 C252 C2AC 00922 0097C   162        MVC PLINE+66(4),=XL4'40202120'      PUT POINTS IN PLINE          00000759            
+0007AC DE03 C252 C1B6 00922 00886   163        ED PLINE+66(4),ADD                                               00000760            
+0007B2 D203 C25B C2AC 0092B 0097C   164        MVC PLINE+75(4),=XL4'40202120'      PUT SHOTS IN PLINE           00000761            
+0007B8 DE03 C25B 4023 0092B 00023   165        ED PLINE+75(4),35(R4)                                            00000762            
+0007BE F851 C1BC 401E 0088C 0001E   166        ZAP DIV(6),30(2,R4)                 ZAP GOALS INTO DIV           00000763            
+
+                                                                                                               PAGE    4            
+
+  LOC  OBJECT CODE    ADDR1 ADDR2  STMT   SOURCE STATEMENT                                                                          
+0007C4 FC52 C1BC C2DE 0088C 009AE   167        MP DIV(6),=P'1000'                  MULTIPLY BY 1000             00000764            
+0007CA FD52 C1BC 4022 0088C 00022   168        DP DIV(6),34(3,R4)                 DIVIDE GOALS BY SHOTS         00000765            
+0007D0 D207 C263 C2A0 00933 00970   169        MVC PLINE+83(8),=XL8'40202021204B2020'                           00000766            
+0007D6 DE07 C263 C1BC 00933 0088C   170        ED PLINE+83(8),DIV                 STORE % IN PLINE              00000767            
+0007DC 95D9 4002      00002         171 CASE1  CLI 2(R4),C'R'                     CHECK POS CODE R              00000768            
+0007E0 4770 C11E            007EE   172        BNE CASE2                          IF NOT MATCHED                00000769            
+0007E4 D209 C22F C18E 008FF 0085E   173        MVC PLINE+31(10),R                 PUT RIGHT WING IN PLINE       00000770            
+0007EA 47F0 C14C            0081C   174        B SKIP                             SKIP OTHER CODE COMPS         00000771            
+0007EE 95D3 4002      00002         175 CASE2  CLI 2(R4),C'L'                     CHECK POS CODE L              00000772            
+0007F2 4770 C130            00800   176        BNE CASE3                          IF NOT MATCHED                00000773            
+0007F6 D209 C22F C198 008FF 00868   177        MVC PLINE+31(10),L                 PUT LEFT WING IN PLINE        00000774            
+0007FC 47F0 C14C            0081C   178        B SKIP                             SKIP OTHER CODE COMPS         00000775            
+000800 95C3 4002      00002         179 CASE3  CLI 2(R4),C'C'                     CHECK POS CODE C              00000776            
+000804 4770 C142            00812   180        BNE CASE4                          IF NOT MATCHED                00000777            
+000808 D209 C22F C1A2 008FF 00872   181        MVC PLINE+31(10),C                 PUT CENTER IN PLINE           00000778            
+00080E 47F0 C14C            0081C   182        B SKIP                             SKIP OTHER CODE COMPS         00000779            
+000812 95C4 4002      00002         183 CASE4  CLI 2(R4),C'D'               CHECK POS CODE                      00000780            
+000816 D209 C22F C1AC 008FF 0087C   184        MVC PLINE+31(10),D           PUT POSITION IN PLINE               00000781            
+00081C E020 C210 0085 008E0         185 SKIP   XPRNT PLINE,133              PRINT PLINE                         00000782            
+000822 9240 C210      008E0         186        MVI PLINE,C' '               CLEAR PLINE                         00000783            
+000826 D283 C211 C210 008E1 008E0   187        MVC PLINE+1(132),PLINE       CLEAR PLINE                         00000784            
+00082C 4144 0027            00027   188        LA R4,39(R4)                 BUMP POINTER TO NEXT ENTRY          00000785            
+000830 47F0 C088            00758   189        B DO                         BACK TO LOOP                        00000786            
+                                    190 *                                                                       00000787            
+000834                              191 EXIT1  DS 0H                                                            00000788            
+000834 58DD 0004            00004   192        L R13,4(R13)                                                     00000789            
+000838 98EC D00C            0000C   193        LM R14,R12,12(R13)                                               00000790            
+00083C 07FE                         194        BR R14                       EXIT SUBROUTINE                     00000791            
+                                    195 **********************************************************************  00000792            
+00083E C3C8C9C3C1C7D640             196 HEADER DC CL32'CHICAGO BLACKHAWKS PLAYER STATS'                         00000793            
+00085E D9C9C7C8E340E6C9             197 R      DC CL10'RIGHT WING'                                              00000794            
+000868 D3C5C6E340E6C9D5             198 L      DC CL10'LEFT WING'                                               00000795            
+000872 C3C5D5E3C5D94040             199 C      DC CL10'CENTER'                                                  00000796            
+00087C C4C5C6C5D5E2C540             200 D      DC CL10'DEFENSE'                                                 00000797            
+000886 00000000001D                 201 ADD    DC PL6'-1'                                                       00000798            
+00088C 00000000001D                 202 DIV    DC PL6'-1'                                                       00000799            
+000892 00000000001D                 203 BNUM   DC PL6'-1'                                                       00000800            
+000898 FFFFFFFFFFFFFFFF             204 PSAVE  DC 18F'-1'                                                       00000801            
+0008E0 4040404040404040             205 PLINE  DC CL133'  '                                                     00000802            
+000966 0000                         206 DIE    DC H'00' MARKER IF MISS EOT                                      00000806            
+                                    207        LTORG                                                            00000807            
+000968 D7D6E2C9E3C9D6D5             208                =CL8'POSITION'                                                               
+000970 40202021204B2020             209                =XL8'40202021204B2020'                                                       
+000978 40202020                     210                =XL4'40202020'                                                               
+00097C 40202120                     211                =XL4'40202120'                                                               
+000980 D7D6C9D5E3E2                 212                =CL6'POINTS'                                                                 
+000986 E2C8D6D6E3C9D5C7             213                =CL10'SHOOTING %'                                                            
+000990 7B                           214                =CL1'#'                                                                      
+000991 D7D3C1E8C5D940               215                =CL7'PLAYER'                                                                 
+000998 C7C1D4C5E2                   216                =CL5'GAMES'                                                                  
+00099D C7D6C1D3E2                   217                =CL5'GOALS'                                                                  
+0009A2 C1E2E2C9E2E3E2               218                =CL7'ASSISTS'                                                                
+0009A9 E2C8D6E3E2                   219                =CL5'SHOTS'                                                                  
+0009AE 01000C                       220                =P'1000'                                                                     
+                                    221 **********************************************************************  00000808            
+                                    222 * UPDATE SUBROUTINE                                                     00000809            
+                                    223 * PARAMETER LIST: TABLE & EOT                                           00000810            
+
+                                                                                                               PAGE    5            
+
+  LOC  OBJECT CODE    ADDR1 ADDR2  STMT   SOURCE STATEMENT                                                                          
+                                    224 * UPDATE READS IN DATA FROM FILE, DETERMINES WHICH PLAYERS NEED TO BE   00000811            
+                                    225 * UPDATED AND UPDATES THEM BY ADDING ON TO VALUES IN THE TABLE          00000812            
+                                    226 **********************************************************************  00000813            
+0009B8                              227 UPDATE CSECT                             UPDATE STARTS HERE             00000814            
+0009B8 90EC D00C            0000C   228        STM R14,R12,12(R13)                                              00000815            
+0009BC 18CF                         229        LR R12,R15                                                       00000816            
+0009B8                              230        USING UPDATE,R12                                                 00000817            
+0009BE 41E0 C0FC            00AB4   231        LA R14,USAVE                      STANDARD LINKAGE               00000818            
+0009C2 50ED 0008            00008   232        ST R14,8(R13)                                                    00000819            
+0009C6 50DE 0004            00004   233        ST R13,4(R14)                                                    00000820            
+0009CA 18DE                         234        LR R13,R14                                                       00000821            
+0009CC 9823 1000            00000   235        LM R2,R3,0(R1)                                                   00000822            
+                                    236 *                                                                       00000823            
+0009D0 5863 0000            00000   237        L R6,0(R3)                        LOAD EOT INTO R6               00000824            
+0009D4 E020 C144 0014 00AFC         238        XPRNT UHEADR,20                   PRINT HEADER                   00000825            
+0009DA E020 C158 001E 00B10         239        XPRNT LINE,30                                                    00000826            
+0009E0 E000 C0AC 0050 00A64         240 TOP1   XREAD CARDA,80                    READ RECORD                    00000827            
+0009E6 4740 C098            00A50   241        BC B'0100',EXIT2                  BRANCH IF EOF                  00000828            
+0009EA 4152 0000            00000   242        LA R5,0(R2)                       LOAD TABLE INTO R5             00000829            
+0009EE F211 C0A2 C0AC 00A5A 00A64   243        PACK UNUM(2),PNUMA(2)             PACK PNUM INTO UPDATE PNUM     00000830            
+0009F4 1956                         244 TOP2   CR R5,R6                          CHECK IF AT EOT                00000831            
+0009F6 4780 C08E            00A46   245        BE EXIT3                          EXIT IF SO                     00000832            
+0009FA F911 5000 C0A2 00000 00A5A   246 IF     CP 0(2,R5),UNUM(2)             COMPARE PACK NUM WITH PLAYER NUM  00000833            
+000A00 4770 C086            00A3E   247        BNE ELSE                       IF NOT,BRANCH,ELSE CONTINUE       00000834            
+000A04 F211 C0A4 C0AF 00A5C 00A67   248        PACK UGAME(2),GAMEA(2)                                           00000835            
+000A0A F211 C0A6 C0B2 00A5E 00A6A   249        PACK UGOAL(2),GOALA(2)         PACK INFO READ IN FROM UPDATE     00000836            
+000A10 F211 C0A8 C0B5 00A60 00A6D   250        PACK UASST(2),ASSTA(2)         WILL USE LATER FOR ADDITION       00000837            
+000A16 F222 C0AA C0B8 00A62 00A70   251        PACK USHOT(3),SHOTSA(3)                                          00000838            
+000A1C FA11 501C C0A4 0001C 00A5C   252        AP 28(2,R5),UGAME(2)                                             00000839            
+000A22 FA11 501E C0A6 0001E 00A5E   253        AP 30(2,R5),UGOAL(2)           ADD UPDATE INFORMATION            00000840            
+000A28 FA11 5020 C0A8 00020 00A60   254        AP 32(2,R5),UASST(2)           TO CURRENT INFO IN TABLES         00000841            
+000A2E FA22 5022 C0AA 00022 00A62   255        AP 34(3,R5),USHOT(3)                                             00000842            
+000A34 E020 C176 0014 00B2E         256        XPRNT YMATCH,20                PRINT THAT MATCH WAS FOUND        00000843            
+000A3A 47F0 C028            009E0   257        B TOP1                                                           00000844            
+000A3E 4155 0027            00027   258 ELSE   LA R5,39(R5)                   BUMP UP TABLE POINTER             00000845            
+000A42 47F0 C03C            009F4   259        B TOP2                                                           00000846            
+000A46 E020 C18A 0015 00B42         260 EXIT3  XPRNT NMATCH,21                PRINT THAT MATCH WASN'T FOUND     00000847            
+000A4C 47F0 C028            009E0   261        B TOP1                                                           00000848            
+                                    262 *                                                                       00000849            
+000A50 58DD 0004            00004   263 EXIT2  L R13,4(R13)                                                     00000850            
+000A54 98EC D00C            0000C   264        LM R14,R12,12(R13)                                               00000851            
+000A58 07FE                         265        BR R14                                                           00000852            
+                                    266 **********************************************************************  00000853            
+000A5A 005D                         267 UNUM   DC PL2'-5'                                                       00000854            
+000A5C 005D                         268 UGAME  DC PL2'-5'                                                       00000855            
+000A5E 005D                         269 UGOAL  DC PL2'-5'                                                       00000856            
+000A60 005D                         270 UASST  DC PL2'-5'                                                       00000857            
+000A62 005D                         271 USHOT  DC PL2'-5'                                                       00000858            
+000A64                              272 CARDA  DS 0CL80'CARD'                                                   00000859            
+000A64 60F1                         273 PNUMA  DC CL2'-1'                                                       00000860            
+000A66 40                           274 BLK1A  DC CL1' '                                                        00000861            
+000A67 001D                         275 GAMEA  DC PL2'-1'                                                       00000862            
+000A69 40                           276 BLK2A  DC CL1' '                                                        00000863            
+000A6A 001D                         277 GOALA  DC PL2'-1'                                                       00000864            
+000A6C 40                           278 BLK3A  DC CL1' '                                                        00000865            
+000A6D 001D                         279 ASSTA  DC PL2'-1'                                                       00000866            
+000A6F 40                           280 BLK4A  DC CL1' '                                                        00000867            
+
+                                                                                                               PAGE    6            
+
+  LOC  OBJECT CODE    ADDR1 ADDR2  STMT   SOURCE STATEMENT                                                                          
+000A70 00001D                       281 SHOTSA DC PL3'-1'                                                       00000868            
+000A73 4040404040404040             282 BLK5A  DC CL65' '                                                       00000869            
+000AB4 FFFFFFFFFFFFFFFF             283 USAVE  DC 18F'-1'                                                       00000870            
+000AFC 40                           284 UHEADR DC CL1' '                                                        00000871            
+000AFD 4040404040E4D7C4             285        DC CL19'     UPDATE RESULTS'                                     00000872            
+000B10 6060606060606060             286 LINE   DC CL30'-----------------------------'                           00000873            
+000B2E 40D7D3C1E8C5D940             287 YMATCH DC CL20' PLAYER WAS FOUND'                                       00000874            
+000B42 40D7D3C1E8C5D940             288 NMATCH DC CL21' PLAYER WAS NOT FOUND'                                   00000875            
+                                    289        LTORG                                                            00000876            
+                                    290 **********************************************************************  00000877            
+                                    291 * SORT SUBROUTINE                                                       00000878            
+                                    292 * PARAMETER LIST: TABLE & EOT                                           00000879            
+                                    293 * SORT COMPARES HOCKEY PLAYER NUMBERS AND SORTS THEM FROM HIGHEST TO    00000880            
+                                    294 * LOWEST. DR LEON SAID SORTING BY JERSEY NUMBERS WAS FINE               00000881            
+                                    295 **********************************************************************  00000882            
+000B58                              296 SORT   CSECT                             START SORT SUBROUTINE          00000883            
+000B58 90EC D00C            0000C   297        STM R14,R12,12(R13)                                              00000884            
+000B5C 18CF                         298        LR R12,R15                                                       00000885            
+000B58                              299        USING SORT,R12                                                   00000886            
+000B5E 41E0 C0A8            00C00   300        LA R14,SSAVE                   STANDARD LINKAGE                  00000887            
+000B62 50ED 0008            00008   301        ST R14,8(R13)                                                    00000888            
+000B66 50DE 0004            00004   302        ST R13,4(R14)                                                    00000889            
+000B6A 18DE                         303        LR R13,R14                                                       00000890            
+000B6C 9823 1000            00000   304        LM R2,R3,0(R1)                                                   00000891            
+                                    305 *                                                                       00000892            
+000B70 5833 0000            00000   306        L R3,0(R3)                     LOAD EOT                          00000893            
+000B74 5B30 C0F0            00C48   307        S R3,=F'39'                    RESET TO AIM AT BEGIN OF TABLE    00000894            
+000B78 1843                         308        LR R4,R3                       STORE R3 INTO R4                  00000895            
+000B7A 4132 0000            00000   309        LA R3,0(R2)                    STORE TABLE AT R3                 00000896            
+000B7E 1934                         310 $TOP1  CR R3,R4                       COMPARE BEGIN TO END              00000897            
+000B80 4720 C072            00BCA   311        BH $EXIT1                      BRANCH IF AT END                  00000898            
+000B84 1863                         312        LR R6,R3                       LOW(R6)=BEGIN(R3)                 00000899            
+000B86 4153 0027            00027   313        LA R5,39(R3)                   BEGIN = BEGIN + 1                 00000900            
+000B8A 1954                         314 $TOP2  CR R5,R4                       COMPARE CURRENT TO END            00000901            
+000B8C 4720 C058            00BB0   315        BH $EXIT2                      IF I > END, BRANCH                00000902            
+000B90 F811 C0A5 6000 00BFD 00000   316        ZAP LOW(2),0(2,R6)             GET KEY FOR LOW                   00000903            
+000B96 F811 C0A3 5000 00BFB 00000   317        ZAP CURR(2),0(2,R5)            GET KEY FOR I                     00000904            
+000B9C F911 C0A5 C0A3 00BFD 00BFB   318 $IF    CP LOW(2),CURR(2)              COMPARE LOW & I                   00000905            
+000BA2 47B0 C050            00BA8   319        BNL $ENDIF                     IF LOW > I, BRANCH                00000906            
+000BA6 1865                         320        LR R6,R5                       ELSE LOW=CURRENT                  00000907            
+000BA8 4155 0027            00027   321 $ENDIF LA R5,39(R5)                   BUMP UP POINTER                   00000908            
+000BAC 47F0 C032            00B8A   322        B $TOP2                        BACK TO INNER LOOP                00000909            
+000BB0 D226 C07C 6000 00BD4 00000   323 $EXIT2 MVC TEMP(39),0(R6)             MOVE LOW INTO TEMP                00000910            
+000BB6 D226 6000 3000 00000 00000   324        MVC 0(39,R6),0(R3)             MOVE BEGIN INTO LOW               00000911            
+000BBC D226 3000 C07C 00000 00BD4   325        MVC 0(39,R3),TEMP              MOVE TEMP INTO BEHIN              00000912            
+000BC2 4133 0027            00027   326        LA R3,39(R3)                   BEGIN=BEGIN+1                     00000913            
+000BC6 47F0 C026            00B7E   327        B $TOP1                        BACK TO MAIN LOOP                 00000914            
+000BCA 58DD 0004            00004   328 $EXIT1 L R13,4(R13)                                                     00000915            
+000BCE 98EC D00C            0000C   329        LM R14,R12,12(R13)                                               00000916            
+000BD2 07FE                         330        BR R14                                 EXIT SORT SUBROUTINE      00000917            
+                                    331 **********************************************************************  00000918            
+000BD4 4040404040404040             332 TEMP   DC CL39' '                                                       00000919            
+000BFB 001D                         333 CURR   DC PL2'-1'                                                       00000920            
+000BFD 001D                         334 LOW    DC PL2'-1'                                                       00000921            
+000C00 FFFFFFFFFFFFFFFF             335 SSAVE  DC 18F'-1'                                                       00000922            
+000001                              336 R1     EQU 1                                                            00000923            
+000002                              337 R2     EQU 2                                                            00000924            
+
+                                                                                                               PAGE    7            
+
+  LOC  OBJECT CODE    ADDR1 ADDR2  STMT   SOURCE STATEMENT                                                                          
+000003                              338 R3     EQU 3                                                            00000930            
+000004                              339 R4     EQU 4                                                            00001000            
+000005                              340 R5     EQU 5                                                            00001100            
+000006                              341 R6     EQU 6                                                            00001200            
+000007                              342 R7     EQU 7                                                            00001300            
+000008                              343 R8     EQU 8                                                            00001400            
+000009                              344 R9     EQU 9                                                            00001500            
+00000A                              345 R10    EQU 10                                                           00001600            
+00000B                              346 R11    EQU 11                                                           00001700            
+00000C                              347 R12    EQU 12                                                           00001800            
+00000D                              348 R13    EQU 13                                                           00001900            
+00000E                              349 R14    EQU 14                                                           00002000            
+00000F                              350 R15    EQU 15                                                           00002100            
+                                    351        END                                                              00002200            
+000C48 00000027                     352                =F'39'                                                                       
+
+***  NO   STATEMENTS FLAGGED -  NO   WARNINGS,  NO   ERRORS                                                                         
+
+*** DYNAMIC CORE AREA USED:  LOW:   21520 HIGH:    2664 LEAVING:  469384 FREE BYTES. AVERAGE:       68 BYTES/STMT ***               
+
+*** ASSEMBLY TIME =    0.001 SECS,   353000 STATEMENTS/SEC ***                                                                      
+
+*** PROGRAM EXECUTION BEGINNING - ANY OUTPUT BEFORE EXECUTION TIME MESSAGE IS PRODUCED BY USER PROGRAM ***                          
+
+BEGIN XSNAP - CALL     1 AT C0000042 USER STORAGE                                                                                   
+
+                             CORE ADDRESSES SPECIFIED-     000100 TO 000380                                                         
+000100   088FD9D7 81A39989 839240D2 81958540    40404040 40404040 40404040 059F027F   *..RP...... K...             ....*            
+000120   036F0019 5F404001 0FD3D781 A3998983    9240E288 81999740 40404040 40404040   *.....  ..LP...... S....         *            
+000140   40404006 0F028F03 0F00231F 4040019F    C3D19695 81A38896 9540E396 85A6A240   *   .........  ..CJ....... T.... *            
+000160   40404040 40404040 4040060F 019F036F    00154F40 40081FD9 D4819989 819540C8   *          .........  ..RM..... H*            
+000180   96A2A281 40404040 40404040 40404040    40055F02 4F026F00 191F4040 002FC4C4   *....             .........  ..DD*            
+0001A0   A4958381 9540D285 89A38840 40404040    40404040 40404040 059F003F 045F0014   *..... K....             ........*            
+0001C0   7F404002 0FD3C299 81958496 9540E281    81844040 40404040 40404040 40404006   *.  ..LB...... S...             .*            
+0001E0   0F018F02 2F00110F 4040007F C4C29985    95A340E2 85818299 96969240 40404040   *........  ..DB.... S.......     *            
+000200   40404040 4040060F 006F028F 00114F40    40065FD9 C1958499 85A640E2 8881A640   *      .........  ..RA..... S... *            
+000220   40404040 40404040 40404040 40058F01    4F012F00 113F4040 016FC3D4 819983A4   *             .........  ..CM....*            
+000240   A240D299 A4878599 40404040 40404040    40404040 060F006F 018F0006 0F404000   *. K.....            .........  .*            
+000260   4FC4D589 929381A2 40C89181 93948199    A2A29695 40404040 40404006 0F004F01   *.DN..... H..........       .....*            
+000280   9F00078F 4040008F C4D58983 9240D385    8484A840 40404040 40404040 40404040   *....  ..DN... L....             *            
+0002A0   4040060F 006F017F 00088F40 40023FD9    D29989A2 40E58599 A2A38585 87404040   *  .........  ..RK... V.......   *            
+0002C0   40404040 40404040 40041F00 7F014F00    069F4040 028FD9C2 859540E2 9489A388   *         .........  ..RB.. S....*            
+0002E0   40404040 40404040 40404040 40404040    053F007F 010F0005 6F404002 7FC4D196   *                .........  ..DJ.*            
+000300   889595A8 40D684A4 A8814040 40404040    40404040 40404005 8F003F01 0F00060F   *.... O....             .........*            
+000320   4040052F D3C29981 95849695 40C29693    93898740 40404040 40404040 4040060F   *  ..LB...... B.....           ..*            
+000340   006F006F 00079F40 40026FC3 D4898388    819340C8 819584A9 A4A24040 40404040   *.......  ..CM..... H......      *            
+000360   40404040 40041F00 4F007F00 033F4040    037FC3C2 99819584 969540D7 89999989   *     .........  ..CB...... P....*            
+
+                                                                                                                                    
+                             CHICAGO BLACKHAWKS PLAYER STATS                                                                        
+ #  PLAYER                    POSITION   GAMES   GOALS  ASSISTS  POINTS   SHOTS   SHOOTING %                                        
+
+
+-----------------------------------------------------------------------------------------------                                     
+ 88 Patrick Kane              RIGHT WING   59      27      36      63      195       13.8                                           
+ 10 Patrick Sharp             LEFT WING    60      28      30      58      231       12.1                                           
+ 19 Jonathon Toews            CENTER       60      19      36      55      154       12.3                                           
+ 81 Marian Hossa              RIGHT WING   55      24      26      50      191       12.5                                           
+  2 Duncan Keith              DEFENSE      59       3      45      48      147        2.0                                           
+ 20 Brandon Saad              LEFT WING    60      18      22      40      110       16.3                                           
+
+  7 Brent Seabrook            DEFENSE      60       6      28      34      114        5.2                                           
+ 65 Andrew Shaw               RIGHT WING   58      14      12      26      113       12.3                                           
+ 16 Marcus Kruger             CENTER       60       6      18      24       60       10.0                                           
+  4 Niklas Hjalmarsson        DEFENSE      60       4      19      23       78        5.1                                           
+  8 Nick Leddy                DEFENSE      60       6      17      23       88        6.8                                           
+ 23 Kris Versteeg             RIGHT WING   41       7      14      21       69       10.1                                           
+ 28 Ben Smith                 RIGHT WING   53       7      10      17       56       12.5                                           
+ 27 Johnny Oduya              DEFENSE      58       3      10      13       60        5.0                                           
+ 52 Brandon Bollig            LEFT WING    60       6       6      12       79        7.5                                           
+ 26 Michal Handzus            CENTER       41       4       7      11       33       12.1                                           
+ 37 Brandon Pirri             CENTER       28       6       5      11       34       17.6                                           
+ 29 Bryan Bickell             LEFT WING    43       8       2      10       63       12.6                                           
+ 32 Michal Rozsival           DEFENSE      33       1       5       6       31        3.2                                           
+ 11 Jeremy Morin              LEFT WING    15       1       4       5       31        3.2                                           
+ 17 Sheldon Brookbank         DEFENSE      32       1       3       4       30        3.3                                           
+ 42 Joakim Nordstrom          CENTER       10       1       1       2       10       10.0                                           
+ 12 Peter Regin               CENTER        7       2       0       2        9       22.2                                           
+ 51 Brad Mills                CENTER        3       0       0       0        2        0.0                                           
+  5 David Rundblad            DEFENSE       1       0       0       0        1        0.0                                           
+     UPDATE RESULTS                                                                                                                 
+
+
+----------------------------                                                                                                        
+PLAYER WAS FOUND                                                                                                                    
+PLAYER WAS FOUND                                                                                                                    
+PLAYER WAS FOUND                                                                                                                    
+PLAYER WAS FOUND                                                                                                                    
+PLAYER WAS FOUND                                                                                                                    
+PLAYER WAS FOUND                                                                                                                    
+PLAYER WAS NOT FOUND                                                                                                                
+PLAYER WAS FOUND                                                                                                                    
+PLAYER WAS FOUND                                                                                                                    
+PLAYER WAS FOUND                                                                                                                    
+PLAYER WAS FOUND                                                                                                                    
+PLAYER WAS FOUND                                                                                                                    
+PLAYER WAS FOUND                                                                                                                    
+PLAYER WAS FOUND                                                                                                                    
+PLAYER WAS NOT FOUND                                                                                                                
+PLAYER WAS NOT FOUND                                                                                                                
+PLAYER WAS FOUND                                                                                                                    
+PLAYER WAS FOUND                                                                                                                    
+PLAYER WAS FOUND                                                                                                                    
+PLAYER WAS FOUND                                                                                                                    
+PLAYER WAS FOUND                                                                                                                    
+PLAYER WAS FOUND                                                                                                                    
+                             CHICAGO BLACKHAWKS PLAYER STATS                                                                        
+ #  PLAYER                    POSITION   GAMES   GOALS  ASSISTS  POINTS   SHOTS   SHOOTING %                                        
+
+
+-----------------------------------------------------------------------------------------------                                     
+ 88 Patrick Kane              RIGHT WING   68      29      39      68      225       12.8                                           
+ 81 Marian Hossa              RIGHT WING   59      25      29      54      200       12.5                                           
+ 65 Andrew Shaw               RIGHT WING   67      17      15      32      128       13.2                                           
+ 52 Brandon Bollig            LEFT WING    69       7       7      14       92        7.6                                           
+ 51 Brad Mills                CENTER        3       0       0       0        2        0.0                                           
+ 42 Joakim Nordstrom          CENTER       10       1       1       2       10       10.0                                           
+ 37 Brandon Pirri             CENTER       28       6       5      11       34       17.6                                           
+ 32 Michal Rozsival           DEFENSE      38       1       6       7       37        2.7                                           
+ 29 Bryan Bickell             LEFT WING    52      10       2      12       76       13.1                                           
+ 28 Ben Smith                 RIGHT WING   62       9      12      21       72       12.5                                           
+ 27 Johnny Oduya              DEFENSE      67       3      12      15       72        4.1                                           
+ 26 Michal Handzus            CENTER       49       4       9      13       43        9.3                                           
+ 23 Kris Versteeg             RIGHT WING   50       8      16      24       84        9.5                                           
+
+ 20 Brandon Saad              LEFT WING    68      19      25      44      134       14.1                                           
+ 19 Jonathon Toews            CENTER       69      27      38      65      179       15.0                                           
+ 17 Sheldon Brookbank         DEFENSE      36       1       4       5       31        3.2                                           
+ 16 Marcus Kruger             CENTER       69       6      20      26       72        8.3                                           
+ 12 Peter Regin               CENTER        7       2       0       2        9       22.2                                           
+ 11 Jeremy Morin              LEFT WING    15       1       4       5       31        3.2                                           
+ 10 Patrick Sharp             LEFT WING    69      29      37      66      262       11.0                                           
+  8 Nick Leddy                DEFENSE      69       7      19      26      104        6.7                                           
+  7 Brent Seabrook            DEFENSE      69       6      31      37      129        4.6                                           
+  5 David Rundblad            DEFENSE       1       0       0       0        1        0.0                                           
+  4 Niklas Hjalmarsson        DEFENSE      69       4      21      25       84        4.7                                           
+  2 Duncan Keith              DEFENSE      68       4      50      54      171        2.3                                           
+
+*** EXECUTION TIME =    0.003 SECS.      6823 INSTRUCTIONS EXECUTED -  2274333 INSTRUCTIONS/SEC ***                                 
+
+*** AM004 - NORMAL USER TERMINATION BY RETURN ***                                                                                   
+!! END OF JES SPOOL FILE !!

@@ -1,0 +1,401 @@
+                    J E S 2  J O B  L O G  --  S Y S T E M  S 0 W 1  --  N O D E  Z O S K C T R         
+
+ 
+00.48.46 JOB08876 ---- MONDAY,    05 MAY 2014 ----
+00.48.46 JOB08876  IRR010I  USERID KC03C1C  IS ASSIGNED TO THIS JOB.
+00.48.46 JOB08876  ICH70001I KC03C1C  LAST ACCESS AT 00:47:24 ON MONDAY, MAY 5, 2014
+00.48.46 JOB08876  $HASP373 KC03C1CA STARTED - INIT 2    - CLASS A - SYS S0W1
+00.48.46 JOB08876  -                                      -----TIMINGS (MINS.)------                          -----PAGING COUNTS----
+00.48.46 JOB08876  -STEPNAME PROCSTEP    RC   EXCP   CONN       TCB       SRB  CLOCK          SERV  WORKLOAD  PAGE  SWAP   VIO SWAPS
+00.48.46 JOB08876  -STEP1                00     59     12       .00       .00     .0            13  BATCH        0     0     0     0
+00.48.46 JOB08876  -KC03C1CA ENDED.  NAME-AHMER WASEEM         TOTAL TCB CPU TIME=      .00 TOTAL ELAPSED TIME=    .0
+00.48.46 JOB08876  $HASP395 KC03C1CA ENDED
+
+------ JES2 JOB STATISTICS ------
+
+
+  05 MAY 2014 JOB EXECUTION DATE
+
+
+          207 CARDS READ
+
+
+          362 SYSOUT PRINT RECORDS
+
+
+            0 SYSOUT PUNCH RECORDS
+
+
+           38 SYSOUT SPOOL KBYTES
+
+
+         0.00 MINUTES EXECUTION TIME
+!! END OF JES SPOOL FILE !!
+       1 //KC03C1CA JOB ,'AHMER WASEEM',MSGCLASS=H,TIME=(,5)                     JOB08876
+       2 //STEP1 EXEC PGM=ASSIST,PARM='MACRO=F'                                  00000200
+       3 //STEPLIB DD DSN=KC02293.ASSIST.LOADLIB,DISP=SHR                        00000300
+       4 //SYSPRINT DD SYSOUT=*                                                  00000400
+       5 //SYSIN DD *                                                            00000500
+       6 //FT05F001 DD DSN=KC02330.CSCI360.FILES(DATA9),DISP=SHR                 00016200
+!! END OF JES SPOOL FILE !!
+ICH70001I KC03C1C  LAST ACCESS AT 00:47:24 ON MONDAY, MAY 5, 2014
+IEF236I ALLOC. FOR KC03C1CA STEP1
+IGD103I SMS ALLOCATED TO DDNAME STEPLIB
+IEF237I JES2 ALLOCATED TO SYSPRINT
+IEF237I JES2 ALLOCATED TO SYSIN
+IGD103I SMS ALLOCATED TO DDNAME FT05F001
+IEF142I KC03C1CA STEP1 - STEP WAS EXECUTED - COND CODE 0000
+IGD104I KC02293.ASSIST.LOADLIB                       RETAINED,  DDNAME=STEPLIB 
+IEF285I   KC03C1C.KC03C1CA.JOB08876.D0000102.?         SYSOUT        
+IEF285I   KC03C1C.KC03C1CA.JOB08876.D0000101.?         SYSIN         
+IGD104I KC02330.CSCI360.FILES                        RETAINED,  DDNAME=FT05F001
+IEF373I STEP/STEP1   /START 2014125.0048
+IEF032I STEP/STEP1   /STOP  2014125.0048 
+        CPU:     0 HR  00 MIN  00.01 SEC    SRB:     0 HR  00 MIN  00.00 SEC    
+        VIRT:   584K  SYS:   284K  EXT:        0K  SYS:    11160K
+IEF375I  JOB/KC03C1CA/START 2014125.0048
+IEF033I  JOB/KC03C1CA/STOP  2014125.0048 
+        CPU:     0 HR  00 MIN  00.01 SEC    SRB:     0 HR  00 MIN  00.00 SEC    
+!! END OF JES SPOOL FILE !!
+
+*** ASSIST 4.0/A2-05/15/82  470/V7A/0:OS/VS2  INS=SDFP7/X=BGHO, CHECK/TRC/=1180, OPTS=CDKMPR FROM PENN ST*NIU COMPSCI*LT            
+
+MACRO=F                                                                                                                             
+
+                                                                                                               PAGE    1            
+
+  LOC  OBJECT CODE    ADDR1 ADDR2  STMT   SOURCE STATEMENT                                                                          
+                                      1 *****************************************************************       00000600            
+                                      2 * AHMER WASEEM                                                          00000700            
+                                      3 * ERNESTO RODRIGUEZ                                                     00000710            
+                                      4 * 5/4/14                                                                00000800            
+                                      5 * PROGRAM 9  AND PROGRAM 9A                                             00000900            
+                                      6 * READS FILE ABOUT BEER DETERMINES VARIABLE LENGTH, INSERTS INTO        00000910            
+                                      7 * TABLE AND PRINTS OUT TABLE INFORMATION, ALSO USES MACROS              00000920            
+                                      8 *****************************************************************       00001000            
+                                      9        MACRO                                                            00001010            
+                                     10        SENTRY &NAME,&SAVE                                               00001020            
+                                     11        AIF ('&NAME' NE '').CHECK                                        00001030            
+                                     12        MNOTE '**FIRST PARM NOT PRESENT**'                               00001040            
+                                     13        MEXIT                                                            00001050            
+                                     14 .CHECK AIF ('&SAVE' NE '').GOOD                                         00001060            
+                                     15        MNOTE '**SECOND PARM NOT PRESENT**'                              00001070            
+                                     16        MEXIT                                                            00001080            
+                                     17 .GOOD  ANOP                                                             00001090            
+                                     18        STM R14,R12,12(R13)                                              00001091            
+                                     19        LR R12,R15                                                       00001092            
+                                     20        USING &NAME,R12                                                  00001093            
+                                     21        LA 14,&SAVE                                                      00001094            
+                                     22        ST R14,8(R13)                                                    00001095            
+                                     23        ST R13,4(R14)                                                    00001096            
+                                     24        LR R13,R14                                                       00001097            
+                                     25        MEND                                                             00001098            
+                                     26        MACRO                                                            00001099            
+                                     27        SEXIT                                                            00001100            
+                                     28        L R13,4(R13)                                                     00001101            
+                                     29        LM R14,R12,12(R13)                                               00001102            
+                                     30        BR R14                                                           00001103            
+                                     31        MEND                                                             00001104            
+000000                               32 MAIN   CSECT                                                            00001110            
+                                     33        SENTRY MAIN,MSAVE                                                00001200            
+000000 90EC D00C            0000C    34+       STM R14,R12,12(R13)                                                                  
+000004 18CF                          35+       LR R12,R15                                                                           
+000000                               36+       USING MAIN,R12                                                                       
+000006 41E0 C040            00040    37+       LA 14,MSAVE                                                                          
+00000A 50ED 0008            00008    38+       ST R14,8(R13)                                                                        
+00000E 50DE 0004            00004    39+       ST R13,4(R14)                                                                        
+000012 18DE                          40+       LR R13,R14                                                                           
+                                     41 *                                                                       00001900            
+000014 4110 C038            00038    42        LA R1,PLIST                 LOAD PARM LIST INTO R1               00002000            
+000018 58F0 CC50            00C50    43        L R15,=V(BUILD)             GO TO BUILD SUBROUTINE               00002100            
+00001C 05EF                          44        BALR R14,R15                                                     00002200            
+00001E E060 C0C0 0280 000C0          45        XDUMP TABLE,640                                                  00002300            
+000024 4110 C038            00038    46        LA R1,PLIST                 LOAD PARM LIST INTO R1               00002400            
+000028 58F0 CC54            00C54    47        L R15,=V(PRINT)             GO TO PRINT SUBROUTINE               00002500            
+00002C 05EF                          48        BALR R14,R15                                                     00002600            
+                                     49 *                                                                       00002700            
+                                     50        SEXIT                                                            00002800            
+00002E 58DD 0004            00004    51+       L R13,4(R13)                                                                         
+000032 98EC D00C            0000C    52+       LM R14,R12,12(R13)                                                                   
+
+                                                                                                               PAGE    2            
+
+  LOC  OBJECT CODE    ADDR1 ADDR2  STMT   SOURCE STATEMENT                                                                          
+000036 07FE                          53+       BR R14                                                                               
+                                     54 *********************************************************************** 00003100            
+000038 000000C000000C48              55 PLIST  DC A(TABLE,EOT)                                                  00003200            
+000040 FFFFFFFFFFFFFFFF              56 MSAVE  DC 18F'-1'                                                       00003300            
+0000A0                               57        ORG MAIN+((*-MAIN+31)/32*32)                                     00003400            
+0000A0 E3C1C2D3C540E2E3              58        DC CL32'TABLE STARTS HERE'                                       00003500            
+0000C0 4040404040404040              59 TABLE  DC 50CL59' '                                                     00003600            
+000C48 FFFFFFFF                      60 EOT    DC F'-1'                                                         00003700            
+                                     61        LTORG                                                            00003800            
+000C50 00000C58                      62                =V(BUILD)                                                                    
+000C54 00000EC8                      63                =V(PRINT)                                                                    
+                                     64 *********************************************************************** 00003900            
+                                     65 *BUILD SUBROUTINE:                                                    * 00004000            
+                                     66 *HAS A PARAMETER LIST OF NEXT AND EOT                                 * 00004100            
+                                     67 *READS IN A FILE AND POPULATES A TABLE UNTIL END OF FILE IS REACHED   * 00004200            
+                                     68 *LENGTH OF RECORDS ARE DETERMINED BY USING TRANSLATE,TEST,& EX COMMANDS 00004300            
+                                     69 *********************************************************************** 00004400            
+000C58                               70 BUILD  CSECT                         BUILD STARTS HERE                  00004500            
+                                     71        SENTRY BUILD,BSAVE                                               00004600            
+000C58 90EC D00C            0000C    72+       STM R14,R12,12(R13)                                                                  
+000C5C 18CF                          73+       LR R12,R15                                                                           
+000C58                               74+       USING BUILD,R12                                                                      
+000C5E 41E0 C0D4            00D2C    75+       LA 14,BSAVE                                                                          
+000C62 50ED 0008            00008    76+       ST R14,8(R13)                                                                        
+000C66 50DE 0004            00004    77+       ST R13,4(R14)                                                                        
+000C6A 18DE                          78+       LR R13,R14                                                                           
+000C6C 9823 1000            00000    79        LM R2,R3,0(R1)                                                   00005300            
+                                     80 *                                                                       00005400            
+000C70 4142 0000            00000    81        LA R4,0(R2)                POINT R4 TO TABLE                     00005500            
+000C74 E000 C11C 0050 00D74          82 TOP    XREAD CARD,80              READ RECORD,XREAD LOOP                00005600            
+000C7A 4740 C0A2            00CFA    83        BC B'0100',EXIT            BRANCH IF EOF                         00005700            
+000C7E 4160 C11C            00D74    84        LA R6,CARD                 POINT R6 TO CARD                      00005800            
+000C82 DD4F 6000 C16C 00000 00DC4    85        TRT 0(80,R6),CTAB          FIND COLON                            00005900            
+000C88 1821                          86        LR R2,R1                   R2 POINTS TO COLON                    00006000            
+000C8A 1B26                          87        SR R2,R6                   FIND LENGTH                           00006100            
+000C8C 1882                          88        LR R8,R2                   LOAD LENGTH INTO R8                   00006110            
+000C8E 8980 0005            00005    89        SLL R8,5                   SHIFT LEFT                            00006120            
+000C92 0620                          90        BCTR R2,R0                 SUBTRACT 1                            00006200            
+000C94 4420 C0B0            00D08    91        EX R2,MNAME                PUT NAME INTO TABLE                   00006300            
+000C98 4111 0001            00001    92        LA R1,1(R1)                SKIP COLON                            00006400            
+000C9C 1861                          93        LR R6,R1                   LOAD LOCATION                         00006500            
+000C9E DD4F 6000 C16C 00000 00DC4    94        TRT 0(80,R6),CTAB          FIND COLON                            00006600            
+000CA4 1821                          95        LR R2,R1                   R2 POINTS TO COLON                    00006700            
+000CA6 1B26                          96        SR R2,R6                   FIND LENGTH                           00006800            
+000CA8 1892                          97        LR R9,R2                   COPY LENGTH INTO R9                   00006810            
+000CAA 1A89                          98        AR R8,R9                   ADD BOTH LENGTHS                      00006820            
+000CAC 8980 0005            00005    99        SLL R8,5                   SHIFT LEFT                            00006830            
+                                    100 *      XDUMP                                                            00006840            
+000CB0 BE83 4000            00000   101        STCM R8,B'0011',0(R4)      STORE LENGTH IN TABLE                 00006850            
+                                    102 *      XDUMP TEMP3                                                      00006851            
+                                    103 *      MVC 0(8,R4),TEMP3(8)                                             00006860            
+000CB4 0620                         104        BCTR R2,R0                 SUBTRACT 1                            00006900            
+000CB6 4420 C0B6            00D0E   105        EX R2,MLOC                 PLACE LOCATION IN TABLE               00007000            
+000CBA 4111 0001            00001   106        LA R1,1(R1)                SKIP COLON                            00007100            
+000CBE 1861                         107        LR R6,R1                   LOAD LOCATION                         00007200            
+000CC0 DD4F 6000 C16C 00000 00DC4   108        TRT 0(80,R6),CTAB          FIND COLON                            00007300            
+000CC6 1821                         109        LR R2,R1                   R2 POINTS TO COLON                    00007400            
+
+                                                                                                               PAGE    3            
+
+  LOC  OBJECT CODE    ADDR1 ADDR2  STMT   SOURCE STATEMENT                                                                          
+000CC8 1B26                         110        SR R2,R6                   FIND LENGTH                           00007500            
+000CCA 0620                         111        BCTR R2,R0                 SUBTRACT 1                            00007600            
+000CCC 4420 C0BC            00D14   112        EX R2,PCASE                PUT CASE IN TEMP                      00007700            
+000CD0 F811 4002 C0C8 00002 00D20   113        ZAP 2(2,R4),TEMP1(2)       ZAP TEMP INTO TABLE                   00007800            
+000CD6 4111 0001            00001   114        LA R1,1(R1)                SKIP COLON                            00007900            
+000CDA 1861                         115        LR R6,R1                   LOAD LOCATION                         00008000            
+000CDC DD4F 6000 C16C 00000 00DC4   116        TRT 0(80,R6),CTAB          FIND COLON                            00008100            
+000CE2 1821                         117        LR R2,R1                   R2 POINTS TO COLON                    00008200            
+000CE4 1B26                         118        SR R2,R6                   FIND LENGTH                           00008300            
+000CE6 0620                         119        BCTR R2,R0                 SUBTRACT 1                            00008400            
+000CE8 4420 C0C2            00D1A   120        EX R2,PPRICE               PUT CASE IN TEMP                      00008500            
+000CEC F822 4004 C0CA 00004 00D22   121        ZAP 4(3,R4),TEMP2(3)       ZAP TEMP INTO TABLE                   00008510            
+000CF2 4144 003B            0003B   122        LA R4,59(R4)               BUMP UP POINTER                       00008600            
+000CF6 47F0 C01C            00C74   123        B TOP                      BACK TO LOOP                          00008700            
+                                    124 *                                                                       00008800            
+000CFA 5043 0000            00000   125 EXIT   ST R4,0(R3)                STORE EOT IN R4                       00008900            
+                                    126        SEXIT                      EXIT BUILD SUBROUTINE                 00009200            
+000CFE 58DD 0004            00004   127+       L R13,4(R13)                                                                         
+000D02 98EC D00C            0000C   128+       LM R14,R12,12(R13)                                                                   
+000D06 07FE                         129+       BR R14                                                                               
+                                    130 *********************************************************************** 00009300            
+000D08 D200 4007 6000 00007 00000   131 MNAME  MVC 7(0,R4),0(R6)                                                00009400            
+000D0E D200 4027 6000 00027 00000   132 MLOC   MVC 39(0,R4),0(R6)                                               00009500            
+000D14 F210 C0C8 6000 00D20 00000   133 PCASE  PACK TEMP1(2),0(0,R6)                                            00009600            
+000D1A F220 C0CA 6000 00D22 00000   134 PPRICE PACK TEMP2(3),0(0,R6)                                            00009700            
+000D20 002D                         135 TEMP1  DC PL2'-2'                                                       00009800            
+000D22 00003D                       136 TEMP2  DC PL3'-3'                                                       00009900            
+000D28 FFFFFFFF                     137 TEMP3  DC F'-1'                                                         00009910            
+                                    138 *LNAME                                                                  00009920            
+000D2C FFFFFFFFFFFFFFFF             139 BSAVE  DC 18F'-1'                                                       00010000            
+000D74 C3C1D9C440404040             140 CARD   DC CL80'CARD'                                                    00010100            
+000DC4 0000000000000000             141 CTAB   DC 256X'00'                                                      00010200            
+000E3E                              142        ORG CTAB+C':'                                                    00010300            
+000E3E FF                           143        DC X'FF'                                                         00010400            
+000EC4                              144        ORG                                                              00010500            
+                                    145        LTORG                                                            00010600            
+                                    146 *********************************************************************** 00010700            
+                                    147 *PRINT SUBROUTINE                                                     * 00010800            
+                                    148 *PARMATER LIST: TABLE AND EOT                                         * 00010900            
+                                    149 *PRINT LOOPS THROUGH THE TABLE AND PRINTS INFORMATION ABOUT EVERY     * 00011000            
+                                    150 *BEER. CALCULATES & DISPLAYS TOTAL POINTS AND POSITION       *          00011100            
+                                    151 *********************************************************************** 00011200            
+000EC8                              152 PRINT  CSECT                     PRINT ROUTINE STARTS                   00011300            
+                                    153        SENTRY PRINT,PSAVE                                               00011400            
+000EC8 90EC D00C            0000C   154+       STM R14,R12,12(R13)                                                                  
+000ECC 18CF                         155+       LR R12,R15                                                                           
+000EC8                              156+       USING PRINT,R12                                                                      
+000ECE 41E0 C108            00FD0   157+       LA 14,PSAVE                                                                          
+000ED2 50ED 0008            00008   158+       ST R14,8(R13)                                                                        
+000ED6 50DE 0004            00004   159+       ST R13,4(R14)                                                                        
+000EDA 18DE                         160+       LR R13,R14                                                                           
+000EDC 9823 1000            00000   161        LM R2,R3,0(R1)                                                   00012100            
+                                    162 *                                                                       00012200            
+000EE0 4142 0000            00000   163        LA R4,0(R2)                      LOAD BEGIN OF TABLE INTO R4     00012300            
+000EE4 E020 C152 0085 0101A         164        XPRNT PLINE,133                                                  00012310            
+000EEA D225 C166 C0E2 0102E 00FAA   165        MVC PLINE+20(38),HEADER          INSERT HEADER                   00012400            
+000EF0 E020 C152 0085 0101A         166        XPRNT PLINE,133                  PRINT HEADER                    00012500            
+
+                                                                                                               PAGE    4            
+
+  LOC  OBJECT CODE    ADDR1 ADDR2  STMT   SOURCE STATEMENT                                                                          
+000EF6 9240 C152      0101A         167        MVI PLINE,C' '                           CLEAR PLINE             00012510            
+000EFA D283 C153 C152 0101B 0101A   168        MVC PLINE+1(132),PLINE                                           00012520            
+000F00 D210 C153 C1F0 0101B 010B8   169        MVC PLINE+1(17),=CL17'BREWERY LOCATION'                          00012522            
+000F06 D208 C16B C201 01033 010C9   170        MVC PLINE+25(9),=CL9'BEER NAME'          INSERT LABELS           00012523            
+000F0C D204 C18B C20A 01053 010D2   171        MVC PLINE+57(5),=CL5'CASES'                                      00012524            
+000F12 D20E C198 C20F 01060 010D7   172        MVC PLINE+70(15),=CL15'PRICE PER CASE'                           00012525            
+000F18 E020 C152 0085 0101A         173        XPRNT PLINE,133                   PRINT LINE                     00012526            
+000F1E 9240 C152      0101A         174        MVI PLINE,C' '                    CLEAR PLINE                    00012530            
+000F22 D283 C153 C152 0101B 0101A   175        MVC PLINE+1(132),PLINE                                           00012540            
+000F28 9260 C152      0101A         176        MVI PLINE,C'-'                    HEADER FORMATTING              00012550            
+000F2C D254 C153 C152 0101B 0101A   177        MVC PLINE+1(85),PLINE                                            00012560            
+000F32 E020 C152 0085 0101A         178        XPRNT PLINE,133                                                  00012561            
+000F38 9240 C152      0101A         179        MVI PLINE,C' '                    CLEAR PLINE                    00012570            
+000F3C D283 C153 C152 0101B 0101A   180        MVC PLINE+1(132),PLINE                                           00012580            
+000F42 5943 0000            00000   181 DO     C R4,0(R3)                        IF AT END OF TABLE             00012600            
+000F46 4780 C0D8            00FA0   182        BE EXIT1                          BRANCH TO EXIT                 00012700            
+000F4A 4720 C150            01018   183        BH DIE                            IF HIGHER, KILL                00012800            
+000F4E 1B88                         184        SR R8,R8                          EMPTY R8                       00012811            
+000F50 BF83 4000            00000   185        ICM R8,B'0011',0(R4)              STORE IN PLINE                 00012812            
+000F54 4198 0000            00000   186        LA R9,0(R8)                       COPY R8                        00012813            
+000F58 41A8 0000            00000   187        LA R10,0(R8)                      COPY R8/LENGTH                 00012814            
+000F5C 8890 000A            0000A   188        SRL R9,10                         SHIFT LEFT FOR NAME LENGTH     00012815            
+000F60 4490 C1DE            010A6   189        EX R9,PNAME                       PUT NAME IN PLINE              00012816            
+000F64 89A0 0017            00017   190        SLL R10,23                        SHIFT LEFT FIND LOC LENGTH     00012817            
+000F68 88A0 001C            0001C   191        SRL R10,28                        ISOLATE LOC LENGTH             00012818            
+000F6C 44A0 C1D8            010A0   192        EX R10,PLOC                       PLACE IN PLINE                 00012819            
+000F70 D204 C18B C21E 01053 010E6   193        MVC PLINE+57(5),=XL5'4020202020'         INSERT CASES            00012900            
+000F76 DE04 C18B 4002 01053 00002   194        ED PLINE+57(5),2(R4)                                             00013000            
+000F7C D207 C198 C1E8 01060 010B0   195        MVC PLINE+70(8),=XL8'40215B20204B2020'   INSERT PRICES           00013001            
+000F82 DE07 C198 4004 01060 00004   196        ED PLINE+70(8),4(R4)                                             00013002            
+000F88 E020 C152 0085 0101A         197        XPRNT PLINE,133                   PRINT LINE                     00013010            
+000F8E 9240 C152      0101A         198        MVI PLINE,C' '                    CLEAR PLINE                    00013020            
+000F92 D283 C153 C152 0101B 0101A   199        MVC PLINE+1(132),PLINE                                           00013030            
+000F98 4144 003B            0003B   200        LA R4,59(R4)                      BUMP POINTER TO NEXT ENTRY     00013100            
+000F9C 47F0 C07A            00F42   201        B DO                              BACK TO LOOP                   00013200            
+                                    202 *                                                                       00013300            
+000FA0                              203 EXIT1  DS 0H                                                            00013400            
+                                    204        SEXIT                             EXIT SUBROUTINE                00013700            
+000FA0 58DD 0004            00004   205+       L R13,4(R13)                                                                         
+000FA4 98EC D00C            0000C   206+       LM R14,R12,12(R13)                                                                   
+000FA8 07FE                         207+       BR R14                                                                               
+                                    208 *********************************************************************** 00013800            
+000FAA C4D6D4C5E2E3C9C3             209 HEADER DC CL38'DOMESTIC AND IMPORTED BEER INFORMATION'                  00013900            
+000FD0 FFFFFFFFFFFFFFFF             210 PSAVE  DC 18F'-1'                                                       00014000            
+001018 0000                         211 DIE    DC H'00' MARKER IF MISS EOT                                      00014100            
+00101A 4040404040404040             212 PLINE  DC CL133' '                                                      00014200            
+0010A0 D200 C153 4027 0101B 00027   213 PLOC   MVC PLINE+1(0),39(R4)                                            00014210            
+0010A6 D200 C16B 4007 01033 00007   214 PNAME  MVC PLINE+25(0),7(R4)                                            00014220            
+                                    215        LTORG                                                            00014300            
+0010B0 40215B20204B2020             216                =XL8'40215B20204B2020'                                                       
+0010B8 C2D9C5E6C5D9E840             217                =CL17'BREWERY LOCATION'                                                      
+0010C9 C2C5C5D940D5C1D4             218                =CL9'BEER NAME'                                                              
+0010D2 C3C1E2C5E2                   219                =CL5'CASES'                                                                  
+0010D7 D7D9C9C3C540D7C5             220                =CL15'PRICE PER CASE'                                                        
+0010E6 4020202020                   221                =XL5'4020202020'                                                             
+000000                              222 R0     EQU 0                                                            00014400            
+000001                              223 R1     EQU 1                                                            00014500            
+
+                                                                                                               PAGE    5            
+
+  LOC  OBJECT CODE    ADDR1 ADDR2  STMT   SOURCE STATEMENT                                                                          
+000002                              224 R2     EQU 2                                                            00014600            
+000003                              225 R3     EQU 3                                                            00014700            
+000004                              226 R4     EQU 4                                                            00014800            
+000005                              227 R5     EQU 5                                                            00014900            
+000006                              228 R6     EQU 6                                                            00015000            
+000007                              229 R7     EQU 7                                                            00015100            
+000008                              230 R8     EQU 8                                                            00015200            
+000009                              231 R9     EQU 9                                                            00015300            
+00000A                              232 R10    EQU 10                                                           00015400            
+00000B                              233 R11    EQU 11                                                           00015500            
+00000C                              234 R12    EQU 12                                                           00015600            
+00000D                              235 R13    EQU 13                                                           00015700            
+00000E                              236 R14    EQU 14                                                           00015800            
+00000F                              237 R15    EQU 15                                                           00015900            
+                                    238        END                                                              00016000            
+
+***  NO   STATEMENTS FLAGGED -  NO   WARNINGS,  NO   ERRORS                                                                         
+
+*** DYNAMIC CORE AREA USED:  LOW:   14760 HIGH:    1384 LEAVING:  477424 FREE BYTES. AVERAGE:       67 BYTES/STMT ***               
+
+*** ASSEMBLY TIME =    0.001 SECS,   239000 STATEMENTS/SEC ***                                                                      
+
+*** PROGRAM EXECUTION BEGINNING - ANY OUTPUT BEFORE EXECUTION TIME MESSAGE IS PRODUCED BY USER PROGRAM ***                          
+
+BEGIN XSNAP - CALL     1 AT D0000024 USER STORAGE                                                                                   
+
+                             CORE ADDRESSES SPECIFIED-     0000C0 TO 000340                                                         
+0000C0   3140025C 01599CC1 95838896 9940E2A3    85819440 40404040 40404040 40404040   *. .....A..... S....             *            
+0000E0   40404040 404040C3 81938986 96999589    81404040 40404040 40404045 40024C02   *       C.........          . ...*            
+000100   141CD785 A3857DA2 40E68983 92858440    C1938540 40404040 40404040 40404040   *..P..... W..... A..             *            
+000120   4040C381 93898696 99958981 40404040    40404040 40405940 018C0269 9CE28985   *  C.........          . .....S..*            
+000140   99998140 D585A581 848140D7 81938540    C1938540 40404040 40404040 40C38193   *... N..... P... A..          C..*            
+000160   89869699 95898140 40404040 40404040    40790001 2C02364C D585A640 C2859387   *.......          .......N.. B...*            
+000180   89A49440 C681A340 E3899985 40C19482    859940C1 93854040 C3969396 99818496   *... F.. T... A.... A..  C.......*            
+0001A0   40404040 40404040 40404040 5500001C    02220CC2 96A49384 859940D7 93819585   *            .......B...... P....*            
+0001C0   A340D796 99A38599 40404040 40404040    404040C3 96939699 81849640 40404040   *. P.....           C.......     *            
+0001E0   40404040 40404039 00032C01 799CC396    9699A240 D6998987 89958193 40404040   *       .......C.... O.......    *            
+000200   40404040 40404040 40404040 4040C396    93969981 84964040 40404040 40404040   *              C.......          *            
+000220   40402D00 029C0179 9CC39696 99A240D3    898788A3 40404040 40404040 40404040   *  .......C.... L....            *            
+000240   40404040 40404040 40C39693 96998184    96404040 40404040 40404040 40690001   *         C.......            ...*            
+000260   7C01794C C296A493 84859940 D781A2A2    40E38994 8540D781 938540C1 93854040   *....B...... P... T... P... A..  *            
+000280   40404040 C3969396 99818496 40404040    40404040 40404040 6500031C 02459CD2   *    C.......            .......K*            
+0002A0   89939389 81957DA2 40C99989 A28840D9    858440D3 81878599 40404040 404040C3   *........ I.... R.. L....       C*            
+0002C0   96939699 81849640 40404040 40404040    40404081 00021C02 180CC881 A9858440   *.......            .......H.... *            
+0002E0   81958440 C99586A4 A2858440 C499A840    C8969797 858440C1 9385C396 93969981   *... I...... D.. H..... A..C.....*            
+000300   84964040 40404040 40404040 404065A0    033C0214 1CE28194 A4859340 C1848194   *..            .......S..... A...*            
+000320   A240C296 A2A39695 40D38187 85994040    40404040 40D481A2 A2818388 A4A285A3   *. B..... L....       M..........*            
+
+                                                                                                                                    
+                                                                                                                                    
+                   DOMESTIC AND IMPORTED BEER INFORMATION                                                                           
+BREWERY LOCATION        BEER NAME                       CASES        PRICE PER CASE                                                 
+-------------------------------------------------------------------------------------                                               
+California              Anchor Steam                      25           $15.99                                                       
+California              Pete's Wicked Ale                 24           $21.41                                                       
+California              Sierra Nevada Pale Ale            18           $26.99                                                       
+Colorado                New Belgium Fat Tire Amber Ale    12           $23.64                                                       
+Colorado                Boulder Planet Porter              1           $22.20                                                       
+Colorado                Coors Original                    32           $17.99                                                       
+Colorado                Coors Light                       29           $17.99                                                       
+Colorado                Boulder Pass Time Pale Ale        17           $17.94                                                       
+Colorado                Killian's Irish Red Lager         31           $24.59                                                       
+Colorado                Hazed and Infused Dry Hopped Ale  21           $21.80                                                       
+Massachusetts           Samuel Adams Boston Lager         33           $21.41                                                       
+Missouri                Michelob Light                    51           $10.99                                                       
+Missouri                Budweiser                         48           $17.99                                                       
+Missouri                Bud Light                         50           $17.99                                                       
+New York                J.W. Dundee Honey Brown Lager     13           $19.03                                                       
+Pennsylvania            Rolling Rock                       5           $20.95                                                       
+Washington              Redhook E.S.B                     24           $26.99                                                       
+Wisconsin               Leinenkugel Red Lager              8           $13.99                                                       
+Wisconsin               Miller Genuine Draft              26           $12.99                                                       
+Wisconsin               Miller Lite                       10           $17.99                                                       
+Belgium                 Lindeman's Kreik Lambic           31           $88.68                                                       
+Belgium                 Stella Artois Pilsner             17           $38.94                                                       
+Canada                  Labatt Blue Lager                  2           $ 9.99                                                       
+China                   TsingTao Lager                     1           $13.58                                                       
+Czech Republic          Pilsner Urquell                   23           $14.99                                                       
+England                 Samuel Smith's Oatmeal Stout       6           $53.94                                                       
+England                 Bass Pale Ale                     14           $24.85                                                       
+Germany                 Celebrator Doppelbock             10           $31.68                                                       
+Germany                 Paulaner Hefe-Weizen              24           $14.99                                                       
+Germany                 Ayinger Altbairisch Dunkel        36           $28.68                                                       
+Ireland                 Harp Lager                        17           $12.99                                                       
+Italy                   Peroni Lager                      12           $34.36                                                       
+Jamaica                 Red Stripe Lager                  12           $30.76                                                       
+Japan                   Kirin Lager                       16           $14.99                                                       
+Mexico                  Dos Equis Amber Lager             20           $12.99                                                       
+The Netherlands         Grolsch Lager                     29           $13.99                                                       
+New Zealand             Steinlager                        30           $11.99                                                       
+
+*** EXECUTION TIME =    0.002 SECS.      2280 INSTRUCTIONS EXECUTED -  1140000 INSTRUCTIONS/SEC ***                                 
+
+*** AM004 - NORMAL USER TERMINATION BY RETURN ***                                                                                   
+!! END OF JES SPOOL FILE !!

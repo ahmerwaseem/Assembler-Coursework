@@ -1,0 +1,170 @@
+                    J E S 2  J O B  L O G  --  S Y S T E M  S 0 W 1  --  N O D E  Z O S K C T R         
+
+ 
+12.12.37 JOB08787 ---- MONDAY,    17 FEB 2014 ----
+12.12.37 JOB08787  IRR010I  USERID KC03C1C  IS ASSIGNED TO THIS JOB.
+12.12.37 JOB08787  ICH70001I KC03C1C  LAST ACCESS AT 12:12:22 ON MONDAY, FEBRUARY 17, 2014
+12.12.37 JOB08787  $HASP373 KC03C1CA STARTED - INIT 2    - CLASS A - SYS S0W1
+12.12.37 JOB08787  -                                      -----TIMINGS (MINS.)------                          -----PAGING COUNTS----
+12.12.37 JOB08787  -STEPNAME PROCSTEP    RC   EXCP   CONN       TCB       SRB  CLOCK          SERV  WORKLOAD  PAGE  SWAP   VIO SWAPS
+12.12.37 JOB08787  -STEP1                00     49     10       .00       .00     .0            11  BATCH        0     0     0     0
+12.12.37 JOB08787  -KC03C1CA ENDED.  NAME-AHMER WASEEM         TOTAL TCB CPU TIME=      .00 TOTAL ELAPSED TIME=    .0
+12.12.37 JOB08787  $HASP395 KC03C1CA ENDED
+
+------ JES2 JOB STATISTICS ------
+
+
+  17 FEB 2014 JOB EXECUTION DATE
+
+
+           70 CARDS READ
+
+
+          138 SYSOUT PRINT RECORDS
+
+
+            0 SYSOUT PUNCH RECORDS
+
+
+           13 SYSOUT SPOOL KBYTES
+
+
+         0.00 MINUTES EXECUTION TIME
+!! END OF JES SPOOL FILE !!
+       1 //KC03C1CA JOB ,'AHMER WASEEM',MSGCLASS=H                               JOB08787
+       2 //STEP1 EXEC PGM=ASSIST                                                 00000200
+       3 //STEPLIB DD DSN=KC02293.ASSIST.LOADLIB,DISP=SHR                        00000300
+       4 //SYSPRINT DD SYSOUT=*                                                  00000310
+       5 //SYSIN DD *                                                            00000400
+       6 //FT05F001 DD DSN=KC02330.CSCI360.FILES(DATA2),DISP=SHR                 00002400
+!! END OF JES SPOOL FILE !!
+ICH70001I KC03C1C  LAST ACCESS AT 12:12:22 ON MONDAY, FEBRUARY 17, 2014
+IEF236I ALLOC. FOR KC03C1CA STEP1
+IGD103I SMS ALLOCATED TO DDNAME STEPLIB
+IEF237I JES2 ALLOCATED TO SYSPRINT
+IEF237I JES2 ALLOCATED TO SYSIN
+IGD103I SMS ALLOCATED TO DDNAME FT05F001
+IEF142I KC03C1CA STEP1 - STEP WAS EXECUTED - COND CODE 0000
+IGD104I KC02293.ASSIST.LOADLIB                       RETAINED,  DDNAME=STEPLIB 
+IEF285I   KC03C1C.KC03C1CA.JOB08787.D0000102.?         SYSOUT        
+IEF285I   KC03C1C.KC03C1CA.JOB08787.D0000101.?         SYSIN         
+IGD104I KC02330.CSCI360.FILES                        RETAINED,  DDNAME=FT05F001
+IEF373I STEP/STEP1   /START 2014048.1212
+IEF032I STEP/STEP1   /STOP  2014048.1212 
+        CPU:     0 HR  00 MIN  00.01 SEC    SRB:     0 HR  00 MIN  00.00 SEC    
+        VIRT:   584K  SYS:   284K  EXT:        0K  SYS:    13268K
+IEF375I  JOB/KC03C1CA/START 2014048.1212
+IEF033I  JOB/KC03C1CA/STOP  2014048.1212 
+        CPU:     0 HR  00 MIN  00.01 SEC    SRB:     0 HR  00 MIN  00.00 SEC    
+!! END OF JES SPOOL FILE !!
+
+*** ASSIST 4.0/A2-05/15/82  470/V7A/0:OS/VS2  INS=SDFP7/X=BGHO, CHECK/TRC/=1180, OPTS=CDKMPR FROM PENN ST*NIU COMPSCI*LT            
+
+                                                                                                                                    
+
+                                                                                                               PAGE    1            
+
+  LOC  OBJECT CODE    ADDR1 ADDR2  STMT   SOURCE STATEMENT                                                                          
+                                      1 * *********************                                                 00000401            
+                                      2 * AHMER WASEEM                                                          00000410            
+                                      3 * Z1707927                                                              00000420            
+                                      4 * 2/7/14                                                                00000430            
+                                      5 * PROGRAM 2                                                             00000440            
+                                      6 * **********************                                                00000450            
+000000                                7 MAIN   CSECT                                                            00000500            
+000000                                8        USING MAIN,R15                                                   00000600            
+000000 E020 F066 0026 00066           9        XPRNT MSG,38   PRINTS REPORT HEADER                              00000603            
+000006 E020 F08C 0030 0008C          10        XPRNT MSG2,48   PRINTS COLUMN HEADERS                            00000604            
+00000C 1B44                          11        SR R4,R4         SET R4 TO ZERO,TRACKS ITERATIONS                00000605            
+00000E 1B55                          12        SR R5,R5         SET R5 TO ZERO,USED TO TOTAL OVERALL            00000606            
+000010 1B66                          13        SR R6,R6         SET R6 TO ZERO, WILL HOLD 1                     00000607            
+000012 5860 F0BC            000BC    14        L R6,PLUS        LOADS VALUE OF 1 INTO R6                        00000609            
+                                     15 *                                                                       00000610            
+000016 E000 F0C0 0050 000C0          16 TOP    XREAD CARD,80    READS RECORD                                    00000611            
+00001C 4740 F04C            0004C    17        BC B'0100',EXIT  CHECKS EOF                                      00000612            
+000020 1A46                          18        AR R4,R6         ADDS R4 AND R6, COUNTER                         00000613            
+000022 5320 F0C0            000C0    19        XDECI R2,CARD    READS 1ST DIGIT                                 00000614            
+000026 5331 0000            00000    20        XDECI R3,0(R1)   READS 2ND DIGIT                                 00000615            
+00002A 5220 F11C            0011C    21        XDECO R2,GOAL   STORES GOALS                                     00000616            
+00002E 5230 F128            00128    22        XDECO R3,ASSIST  STORES ASSISTS                                  00000617            
+000032 1A23                          23        AR R2,R3         ADDS GOALS AND ASSISTS TO R2                    00000618            
+000034 5220 F134            00134    24        XDECO R2,POINTS  STORES R2 VALUE TO POINTS VARIABLE              00000619            
+000038 1A52                          25        AR R5,R2       ADDS PLAYER TOTAL R5 TO R7 OVERALL TOTAL          00000623            
+00003A 5240 F110            00110    26        XDECO R4,PLYRS                                                   00000624            
+00003E E020 F110 0030 00110          27        XPRNT PLYRS,48                                                   00000625            
+000044 5250 F140            00140    28        XDECO R5,TOTAL     LOAD R7 INTO TOTAL                            00000626            
+000048 47F0 F016            00016    29        B TOP                                                            00000628            
+00004C E020 F14C 0014 0014C          30 EXIT   XPRNT MSG3,20      PRINT TOTAL PLAYER MSG                        00000629            
+000052 E020 F110 000C 00110          31        XPRNT PLYRS,12     PRINT TOTAL PLAYERS                           00000630            
+000058 E020 F160 0019 00160          32        XPRNT MSG4,25      PRINT SCORE TOTAL MSG                         00000640            
+00005E E020 F140 000C 00140          33        XPRNT TOTAL,12     PRINT SCORE TOTAL                             00000650            
+000064 07FE                          34        BR R14        EXIT PROGRAM                                       00000670            
+                                     35 ********************************                                        00000680            
+000066 604040                        36 MSG    DC CL3'-'                                                        00000681            
+000069 4040404040404040              37 MSG1   DC CL35'         HOCKEY INFORMATION    '                         00000682            
+00008C 404040404040D7D3              38 MSG2   DC CL48'      PLAYER    GOALS     ASSISTS      POINTS'           00000683            
+0000BC 00000001                      39 PLUS   DC F'1'         ADDS ONE                                         00000684            
+0000C0 C3C1D9C4C3C1D9C4              40 CARD   DC 20CL4'CARD'    80 BYTE CARD                                   00000685            
+000110 F1F3404040404040              41 PLYRS  DC CL12'13'     TOTAL NUMBER OF PLAYERS/READS                    00000686            
+00011C F1F0404040404040              42 GOAL   DC CL12'10'     FULLWORD GOALS                                   00000690            
+000128 F1F1404040404040              43 ASSIST DC CL12'11'     FULLWORD ASSIST                                  00000691            
+000134 F1F2404040404040              44 POINTS DC CL12'12'     TOTAL POINTS/PER PLAYER                          00000692            
+000140 F1F4404040404040              45 TOTAL  DC CL12'14'     OVERALL TOTAL POINTS                             00000694            
+00014C 40D5E4D4C2C5D940              46 MSG3   DC CL20' NUMBER OF PLAYERS:'                                     00000695            
+000160 40E3D6E3C1D340D5              47 MSG4   DC CL25' TOTAL NUMBER OF POINTS:'                                00000696            
+000001                               48 R1     EQU 1                                                            00000700            
+000002                               49 R2     EQU 2                                                            00000800            
+000003                               50 R3     EQU 3                                                            00000900            
+000004                               51 R4     EQU 4                                                            00001000            
+000005                               52 R5     EQU 5                                                            00001100            
+
+                                                                                                               PAGE    2            
+
+  LOC  OBJECT CODE    ADDR1 ADDR2  STMT   SOURCE STATEMENT                                                                          
+000006                               53 R6     EQU 6                                                            00001200            
+000007                               54 R7     EQU 7                                                            00001300            
+000008                               55 R8     EQU 8                                                            00001400            
+000009                               56 R9     EQU 9                                                            00001500            
+00000A                               57 R10    EQU 10                                                           00001600            
+00000B                               58 R11    EQU 11                                                           00001700            
+00000C                               59 R12    EQU 12                                                           00001800            
+00000D                               60 R13    EQU 13                                                           00001900            
+00000E                               61 R14    EQU 14                                                           00002000            
+00000F                               62 R15    EQU 15                                                           00002100            
+                                     63        END                                                              00002200            
+
+***  NO   STATEMENTS FLAGGED -  NO   WARNINGS,  NO   ERRORS                                                                         
+
+*** DYNAMIC CORE AREA USED:  LOW:    3532 HIGH:     800 LEAVING:  489236 FREE BYTES. AVERAGE:       67 BYTES/STMT ***               
+
+*** ASSEMBLY TIME =    0.000 SECS,    64000 STATEMENTS/SEC ***                                                                      
+
+*** PROGRAM EXECUTION BEGINNING - ANY OUTPUT BEFORE EXECUTION TIME MESSAGE IS PRODUCED BY USER PROGRAM ***                          
+
+
+           HOCKEY INFORMATION                                                                                                       
+     PLAYER    GOALS     ASSISTS      POINTS                                                                                        
+          1         172         308         480                                                                                     
+          2         214         226         440                                                                                     
+          3         184         236         420                                                                                     
+          4          62         292         354                                                                                     
+          5          62         217         279                                                                                     
+          6         115         143         258                                                                                     
+          7          51          67         118                                                                                     
+          8          47          52          99                                                                                     
+          9          18          63          81                                                                                     
+         10          13          65          78                                                                                     
+         11          34          28          62                                                                                     
+         12          25          36          61                                                                                     
+         13          17          43          60                                                                                     
+         14           7          21          28                                                                                     
+         15           8          16          24                                                                                     
+NUMBER OF PLAYERS:                                                                                                                  
+         15                                                                                                                         
+TOTAL NUMBER OF POINTS:                                                                                                             
+       2842                                                                                                                         
+
+*** EXECUTION TIME =    0.001 SECS.       223 INSTRUCTIONS EXECUTED -   223000 INSTRUCTIONS/SEC ***                                 
+
+*** AM004 - NORMAL USER TERMINATION BY RETURN ***                                                                                   
+!! END OF JES SPOOL FILE !!
